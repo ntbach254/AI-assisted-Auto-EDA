@@ -1,0 +1,416 @@
+{
+  "hypotheses": [
+    {
+      "id": "H1",
+      "variables": [
+        "income",
+        "education_num",
+        "hours_per_week"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "positive",
+      "claim": "Higher education_num and longer hours_per_week are each positively associated with the probability of earning >50K, as indicated by the large group difference between education_num and income (E4) and the small positive monotonic correlation between education_num and hours_per_week (E10), suggesting that more educated individuals who work more hours are more likely to be in the high‑income group.",
+      "supporting_evidence": [
+        "E4",
+        "E10"
+      ],
+      "test_plan": {
+        "primary_test": "logistic_regression",
+        "null_hypothesis": "education_num and hours_per_week have no effect on income (coefficients = 0)",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "income",
+        "predictors": [
+          "education_num",
+          "hours_per_week"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "education_num": "positive",
+          "hours_per_week": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "income ~ education_num + hours_per_week"
+      },
+      "risk_flags": [
+        "possible_confounding",
+        "weak_effect"
+      ]
+    },
+    {
+      "id": "H2",
+      "variables": [
+        "income",
+        "education_num",
+        "marital_status"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "unknown",
+      "claim": "Both higher education_num and marital_status categories are associated with income, as shown by the large group difference between education_num and income (E4) and the medium categorical association between marital_status and income (E6), indicating that education level and marital situation jointly differentiate income groups.",
+      "supporting_evidence": [
+        "E4",
+        "E6"
+      ],
+      "test_plan": {
+        "primary_test": "logistic_regression",
+        "null_hypothesis": "education_num and marital_status have no effect on income (coefficients = 0)",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "income",
+        "predictors": [
+          "education_num",
+          "marital_status"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "education_num": "positive",
+          "marital_status": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "income ~ education_num + marital_status"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H4",
+      "variables": [
+        "sex",
+        "relationship",
+        "occupation"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Sex is associated with both relationship categories (E1) and occupation categories (E7), forming a triad of categorical associations that reflect gendered patterns in personal relationships and job types.",
+      "supporting_evidence": [
+        "E1",
+        "E7"
+      ],
+      "test_plan": {
+        "primary_test": "logistic_regression",
+        "null_hypothesis": "relationship and occupation have no effect on sex (coefficients = 0)",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "sex",
+        "predictors": [
+          "relationship",
+          "occupation"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "relationship": "unknown",
+          "occupation": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "sex ~ relationship + occupation"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H5",
+      "variables": [
+        "occupation",
+        "education_num",
+        "workclass"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Occupation categories differ across levels of education_num (E8) and also across workclass categories (E9), indicating that both educational attainment and employment sector shape the occupational distribution.",
+      "supporting_evidence": [
+        "E8",
+        "E9"
+      ],
+      "test_plan": {
+        "primary_test": "chi2",
+        "null_hypothesis": "occupation is independent of workclass",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "occupation",
+        "predictors": [
+          "workclass"
+        ],
+        "controls": [
+          "education_num"
+        ],
+        "expected_signs": {
+          "workclass": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "occupation ~ workclass + education_num"
+      },
+      "risk_flags": [
+        "possible_confounding",
+        "weak_effect"
+      ]
+    },
+    {
+      "id": "H6",
+      "variables": [
+        "relationship",
+        "sex",
+        "marital_status"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Relationship categories vary by both sex (E1) and marital_status (E2), and sex also varies by marital_status (E3), revealing intertwined social role patterns across gender, marital condition, and personal relationship type.",
+      "supporting_evidence": [
+        "E1",
+        "E2",
+        "E3"
+      ],
+      "test_plan": {
+        "primary_test": "chi2",
+        "null_hypothesis": "relationship is independent of sex",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "relationship",
+        "predictors": [
+          "sex"
+        ],
+        "controls": [
+          "marital_status"
+        ],
+        "expected_signs": {
+          "sex": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "relationship ~ sex + marital_status"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H8",
+      "variables": [
+        "income",
+        "marital_status",
+        "sex"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Both marital_status (E3) and sex (E3) exhibit medium categorical associations with income, indicating that family status and gender jointly differentiate high‑ versus low‑income groups.",
+      "supporting_evidence": [
+        "E3",
+        "E6"
+      ],
+      "test_plan": {
+        "primary_test": "logistic_regression",
+        "null_hypothesis": "marital_status and sex have no effect on income (coefficients = 0)",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "income",
+        "predictors": [
+          "marital_status",
+          "sex"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "marital_status": "unknown",
+          "sex": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "income ~ marital_status + sex"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H9",
+      "variables": [
+        "hours_per_week",
+        "education_num",
+        "occupation"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "positive",
+      "claim": "Hours_per_week is positively associated with education_num (E10), and education_num is linked to occupation categories (E8), implying that higher education leads to occupations that tend to work more hours per week.",
+      "supporting_evidence": [
+        "E10",
+        "E8"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "education_num and occupation have no effect on hours_per_week (coefficients = 0)",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "hours_per_week",
+        "predictors": [
+          "education_num",
+          "occupation"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "education_num": "positive",
+          "occupation": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "hours_per_week ~ education_num + occupation"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H10",
+      "variables": [
+        "income",
+        "age",
+        "education_num"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "positive",
+      "claim": "Age shows a small group difference across education categories (E11) and education_num shows a large group difference with income (E4), together suggesting that older age may be linked to higher income partly through higher education levels.",
+      "supporting_evidence": [
+        "E11",
+        "E4"
+      ],
+      "test_plan": {
+        "primary_test": "logistic_regression",
+        "null_hypothesis": "age and education_num have no effect on income (coefficients = 0)",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "income",
+        "predictors": [
+          "age",
+          "education_num"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "age": "unknown",
+          "education_num": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "income ~ age + education_num"
+      },
+      "risk_flags": [
+        "possible_confounding",
+        "weak_effect"
+      ]
+    },
+    {
+      "id": "H11",
+      "variables": [
+        "sex",
+        "relationship",
+        "marital_status"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Sex is associated with relationship categories (E1) and also with marital_status (E3), indicating gender differences in both personal relationships and marital conditions.",
+      "supporting_evidence": [
+        "E1",
+        "E3"
+      ],
+      "test_plan": {
+        "primary_test": "logistic_regression",
+        "null_hypothesis": "relationship and marital_status have no effect on sex (coefficients = 0)",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "sex",
+        "predictors": [
+          "relationship",
+          "marital_status"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "relationship": "unknown",
+          "marital_status": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "sex ~ relationship + marital_status"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H14",
+      "variables": [
+        "education_num",
+        "hours_per_week"
+      ],
+      "relationship_type": "monotonic",
+      "direction": "positive",
+      "claim": "Education_num is positively monotonic with hours_per_week (E10), though the correlation is small, indicating that higher education modestly corresponds to longer weekly work hours.",
+      "supporting_evidence": [
+        "E10"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "no monotonic relationship between education_num and hours_per_week",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "hours_per_week",
+        "predictors": [
+          "education_num"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "education_num": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "hours_per_week ~ education_num"
+      },
+      "risk_flags": [
+        "weak_effect"
+      ]
+    },
+    {
+      "id": "H15",
+      "variables": [
+        "workclass",
+        "occupation"
+      ],
+      "relationship_type": "association",
+      "direction": "association_without_direction",
+      "claim": "Workclass categories are moderately associated with occupation categories (E9), reflecting that employment sector influences job type.",
+      "supporting_evidence": [
+        "E9"
+      ],
+      "test_plan": {
+        "primary_test": "chi2",
+        "null_hypothesis": "workclass and occupation are independent",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "occupation",
+        "predictors": [
+          "workclass"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "workclass": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "occupation ~ workclass"
+      },
+      "risk_flags": []
+    }
+  ]
+}

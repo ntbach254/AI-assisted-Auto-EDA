@@ -1,0 +1,322 @@
+{
+  "schema_version": "2.3",
+  "dataset": "adult_income_train",
+  "summary": {
+    "n_edges": 11,
+    "n_variables": 10,
+    "association_types_present": [
+      "cat_cat",
+      "num_cat",
+      "num_num"
+    ],
+    "tests_present": [
+      "chi2",
+      "kruskal",
+      "mannwhitneyu",
+      "spearmanr"
+    ]
+  },
+  "variables": {
+    "age": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 73,
+      "skewness": 0.559752,
+      "outlier_rate": 0.003993,
+      "issues": []
+    },
+    "education": {
+      "feature_type": "categorical_low_cardinality",
+      "dtype": "object",
+      "missing_rate": 0.0,
+      "n_unique": 16,
+      "issues": []
+    },
+    "education_num": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 16,
+      "skewness": -0.318421,
+      "outlier_rate": 0.036723,
+      "issues": []
+    },
+    "hours_per_week": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 93,
+      "skewness": 0.229815,
+      "outlier_rate": 0.273649,
+      "issues": []
+    },
+    "income": {
+      "feature_type": "binary",
+      "dtype": "object",
+      "missing_rate": 0.0,
+      "n_unique": 2,
+      "issues": []
+    },
+    "marital_status": {
+      "feature_type": "categorical_low_cardinality",
+      "dtype": "object",
+      "missing_rate": 0.0,
+      "n_unique": 7,
+      "issues": []
+    },
+    "occupation": {
+      "feature_type": "categorical_low_cardinality",
+      "dtype": "object",
+      "missing_rate": 0.055897,
+      "n_unique": 14,
+      "issues": []
+    },
+    "relationship": {
+      "feature_type": "categorical_low_cardinality",
+      "dtype": "object",
+      "missing_rate": 0.0,
+      "n_unique": 6,
+      "issues": []
+    },
+    "sex": {
+      "feature_type": "binary",
+      "dtype": "object",
+      "missing_rate": 0.0,
+      "n_unique": 2,
+      "issues": []
+    },
+    "workclass": {
+      "feature_type": "categorical_low_cardinality",
+      "dtype": "object",
+      "missing_rate": 0.05559,
+      "n_unique": 8,
+      "issues": []
+    }
+  },
+  "edges": [
+    {
+      "edge_id": "E1",
+      "var1": "relationship",
+      "var2": "sex",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.64932,
+      "effect_name": "cramers_v",
+      "effect_size": "large",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "interpret_as_category_association"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E2",
+      "var1": "marital_status",
+      "var2": "relationship",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.489066,
+      "effect_name": "cramers_v",
+      "effect_size": "medium",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "interpret_as_category_association"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E3",
+      "var1": "marital_status",
+      "var2": "sex",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.467614,
+      "effect_name": "cramers_v",
+      "effect_size": "medium",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "interpret_as_category_association"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E4",
+      "var1": "education_num",
+      "var2": "income",
+      "type": "num_cat",
+      "relationship": "group_difference",
+      "test": "mannwhitneyu",
+      "effect": 0.43697,
+      "effect_name": "rank_biserial",
+      "effect_size": "large",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nonparametric_preferred",
+      "inference_constraints": [
+        "interpret_as_group_difference",
+        "nonparametric_test_used"
+      ],
+      "direction": "group_difference_direction_depends_on_category_order"
+    },
+    {
+      "edge_id": "E5",
+      "var1": "relationship",
+      "var2": "income",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.456935,
+      "effect_name": "cramers_v",
+      "effect_size": "medium",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "interpret_as_category_association"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E6",
+      "var1": "marital_status",
+      "var2": "income",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.451102,
+      "effect_name": "cramers_v",
+      "effect_size": "medium",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "interpret_as_category_association"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E7",
+      "var1": "occupation",
+      "var2": "sex",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.424673,
+      "effect_name": "cramers_v",
+      "effect_size": "medium",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "interpret_as_category_association"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E8",
+      "var1": "education_num",
+      "var2": "occupation",
+      "type": "num_cat",
+      "relationship": "group_difference",
+      "test": "kruskal",
+      "effect": 0.312512,
+      "effect_name": "eta2_approx",
+      "effect_size": "large",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nonparametric_preferred",
+      "inference_constraints": [
+        "interpret_as_group_difference",
+        "nonparametric_test_used"
+      ],
+      "direction": "group_difference",
+      "variance_explained_approx": 0.312512
+    },
+    {
+      "edge_id": "E9",
+      "var1": "workclass",
+      "var2": "occupation",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.400226,
+      "effect_name": "cramers_v",
+      "effect_size": "medium",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "sparse_table_expected_counts_low",
+      "inference_constraints": [
+        "interpret_as_category_association",
+        "chi_square_table_may_be_sparse"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E10",
+      "var1": "education_num",
+      "var2": "hours_per_week",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.168806,
+      "effect_name": "rho",
+      "effect_size": "small",
+      "n": 22792,
+      "q_value": 6.259465153530884e-145,
+      "notes": "nan",
+      "inference_constraints": [
+        "effect_is_weak_or_modest",
+        "do_not_overstate_strength",
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.028496
+    },
+    {
+      "edge_id": "E11",
+      "var1": "age",
+      "var2": "education",
+      "type": "num_cat",
+      "relationship": "group_difference",
+      "test": "kruskal",
+      "effect": 0.054405,
+      "effect_name": "eta2_approx",
+      "effect_size": "small",
+      "n": 22792,
+      "q_value": 1.6702511074350843e-274,
+      "notes": "nonparametric_preferred",
+      "inference_constraints": [
+        "effect_is_weak_or_modest",
+        "do_not_overstate_strength",
+        "interpret_as_group_difference",
+        "nonparametric_test_used"
+      ],
+      "direction": "group_difference",
+      "variance_explained_approx": 0.054405
+    }
+  ],
+  "global_constraints": [
+    "do_not_infer_causality",
+    "do_not_use_external_facts",
+    "do_not_overstate_effect_sizes",
+    "prefer_non_redundant_hypotheses",
+    "prefer_hypotheses_that_synthesize_multiple_edges_when_supported",
+    "every_hypothesis_must_reference_at_least_one_edge",
+    "every_hypothesis_must_include_a_test_plan"
+  ],
+  "notes": [
+    "Top edges were selected with a per-variable cap.",
+    "Weight-like variables were excluded.",
+    "Near-deterministic edges were excluded."
+  ]
+}

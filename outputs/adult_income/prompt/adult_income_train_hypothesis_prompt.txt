@@ -1,0 +1,452 @@
+You are generating testable hypotheses from a structured evidence pack.
+
+Task:
+Generate 15 high-value, non-redundant, testable hypotheses grounded only in the evidence pack.
+
+Core objective:
+Produce hypotheses that reveal meaningful structure in the data, not simple restatements of associations.
+
+Rules:
+1. Use only the evidence_pack. Do not introduce external knowledge.
+2. Do not claim causality. Only propose association, group difference, monotonic, category association, or multi-edge pattern hypotheses.
+3. Avoid trivial hypotheses:
+   - Do not restate a single edge in plain words.
+   - Do not merely say that several variables are associated.
+4. Enforce real synthesis:
+   - At least half of the hypotheses should combine multiple edges when the evidence pack supports it.
+   - Multi-edge hypotheses must express a specific testable structure such as shared association patterns, conditional relationships, or joint variation.
+   - Do not simply merge multiple edges into a list of variables.
+5. Avoid redundancy:
+   - Do not generate two hypotheses that use highly overlapping variable sets unless the claimed pattern is clearly different.
+   - Each hypothesis should introduce a meaningfully different pattern.
+6. Prefer informative hypotheses:
+   - Avoid repeatedly focusing on the same small categorical cluster unless the structure is clearly different.
+   - Prefer hypotheses that connect different parts of the graph when supported.
+7. Respect effect sizes:
+   - If the evidence is weak or modest, state the claim cautiously.
+   - Do not exaggerate weak effects.
+8. Use an appropriate statistical test that matches the variables involved.
+9. Every hypothesis must be machine-testable from the output JSON alone.
+10. Every hypothesis must reference at least one edge_id from the evidence_pack.
+11. Use edge_ids explicitly in "supporting_evidence".
+12. Every hypothesis must include a validation_spec.
+13. In validation_spec, specify exactly:
+   - one explicit outcome variable
+   - one or more predictors
+   - optional controls
+   - expected sign for each predictor when applicable
+   - a model_formula string
+14. For pairwise hypotheses, validation_spec must still be included, with outcome and predictor(s) matching the pairwise test.
+15. For multi-variable hypotheses, do not invent causal mechanisms or unjustified adjustment sets.
+16. Controls must be minimal and grounded in the evidence pack.
+17. If a multi-variable hypothesis cannot be expressed with a clear outcome and predictors, do not generate it.
+18. Return ONLY valid JSON matching the schema exactly. Do not include explanations, comments, markdown fences, or any text outside the JSON object.
+19. Every variable named in variables, validation_spec.outcome, validation_spec.predictors, and validation_spec.controls must exactly match a variable name from the evidence_pack.
+20. Do not use any variable that is not present in evidence_pack.variables.
+21. logistic_regression may only be used when the outcome variable is binary.
+22. linear_regression may only be used when the outcome variable is numeric_continuous or numeric_ordinal.
+23. chi2 may only be used when both outcome and predictor are categorical or binary.
+24. mannwhitneyu may only be used when the outcome is numeric and the predictor has exactly 2 groups.
+25. kruskal may only be used when the outcome is numeric and the predictor is categorical with 3 or more groups.
+26. pearsonr and spearmanr may only be used when both variables are numeric.
+27. If you cannot produce a fully testable hypothesis under these rules, do not output that hypothesis.
+28. Prefer fewer hypotheses over invalid hypotheses.
+29. Only use linear_regression or logistic_regression when the evidence pack strongly supports a multi-variable hypothesis and the outcome type is clearly compatible.
+30. Prefer pairwise tests unless a multi-variable regression hypothesis is clearly justified by multiple edges.
+evidence_pack:
+{
+  "schema_version": "2.3",
+  "dataset": "adult_income_train",
+  "summary": {
+    "n_edges": 11,
+    "n_variables": 10,
+    "association_types_present": [
+      "cat_cat",
+      "num_cat",
+      "num_num"
+    ],
+    "tests_present": [
+      "chi2",
+      "kruskal",
+      "mannwhitneyu",
+      "spearmanr"
+    ]
+  },
+  "variables": {
+    "age": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 73,
+      "skewness": 0.559752,
+      "outlier_rate": 0.003993,
+      "issues": []
+    },
+    "education": {
+      "feature_type": "categorical_low_cardinality",
+      "dtype": "object",
+      "missing_rate": 0.0,
+      "n_unique": 16,
+      "issues": []
+    },
+    "education_num": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 16,
+      "skewness": -0.318421,
+      "outlier_rate": 0.036723,
+      "issues": []
+    },
+    "hours_per_week": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 93,
+      "skewness": 0.229815,
+      "outlier_rate": 0.273649,
+      "issues": []
+    },
+    "income": {
+      "feature_type": "binary",
+      "dtype": "object",
+      "missing_rate": 0.0,
+      "n_unique": 2,
+      "issues": []
+    },
+    "marital_status": {
+      "feature_type": "categorical_low_cardinality",
+      "dtype": "object",
+      "missing_rate": 0.0,
+      "n_unique": 7,
+      "issues": []
+    },
+    "occupation": {
+      "feature_type": "categorical_low_cardinality",
+      "dtype": "object",
+      "missing_rate": 0.055897,
+      "n_unique": 14,
+      "issues": []
+    },
+    "relationship": {
+      "feature_type": "categorical_low_cardinality",
+      "dtype": "object",
+      "missing_rate": 0.0,
+      "n_unique": 6,
+      "issues": []
+    },
+    "sex": {
+      "feature_type": "binary",
+      "dtype": "object",
+      "missing_rate": 0.0,
+      "n_unique": 2,
+      "issues": []
+    },
+    "workclass": {
+      "feature_type": "categorical_low_cardinality",
+      "dtype": "object",
+      "missing_rate": 0.05559,
+      "n_unique": 8,
+      "issues": []
+    }
+  },
+  "edges": [
+    {
+      "edge_id": "E1",
+      "var1": "relationship",
+      "var2": "sex",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.64932,
+      "effect_name": "cramers_v",
+      "effect_size": "large",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "interpret_as_category_association"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E2",
+      "var1": "marital_status",
+      "var2": "relationship",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.489066,
+      "effect_name": "cramers_v",
+      "effect_size": "medium",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "interpret_as_category_association"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E3",
+      "var1": "marital_status",
+      "var2": "sex",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.467614,
+      "effect_name": "cramers_v",
+      "effect_size": "medium",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "interpret_as_category_association"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E4",
+      "var1": "education_num",
+      "var2": "income",
+      "type": "num_cat",
+      "relationship": "group_difference",
+      "test": "mannwhitneyu",
+      "effect": 0.43697,
+      "effect_name": "rank_biserial",
+      "effect_size": "large",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nonparametric_preferred",
+      "inference_constraints": [
+        "interpret_as_group_difference",
+        "nonparametric_test_used"
+      ],
+      "direction": "group_difference_direction_depends_on_category_order"
+    },
+    {
+      "edge_id": "E5",
+      "var1": "relationship",
+      "var2": "income",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.456935,
+      "effect_name": "cramers_v",
+      "effect_size": "medium",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "interpret_as_category_association"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E6",
+      "var1": "marital_status",
+      "var2": "income",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.451102,
+      "effect_name": "cramers_v",
+      "effect_size": "medium",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "interpret_as_category_association"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E7",
+      "var1": "occupation",
+      "var2": "sex",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.424673,
+      "effect_name": "cramers_v",
+      "effect_size": "medium",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "interpret_as_category_association"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E8",
+      "var1": "education_num",
+      "var2": "occupation",
+      "type": "num_cat",
+      "relationship": "group_difference",
+      "test": "kruskal",
+      "effect": 0.312512,
+      "effect_name": "eta2_approx",
+      "effect_size": "large",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "nonparametric_preferred",
+      "inference_constraints": [
+        "interpret_as_group_difference",
+        "nonparametric_test_used"
+      ],
+      "direction": "group_difference",
+      "variance_explained_approx": 0.312512
+    },
+    {
+      "edge_id": "E9",
+      "var1": "workclass",
+      "var2": "occupation",
+      "type": "cat_cat",
+      "relationship": "association",
+      "test": "chi2",
+      "effect": 0.400226,
+      "effect_name": "cramers_v",
+      "effect_size": "medium",
+      "n": 22792,
+      "q_value": 0.0,
+      "notes": "sparse_table_expected_counts_low",
+      "inference_constraints": [
+        "interpret_as_category_association",
+        "chi_square_table_may_be_sparse"
+      ],
+      "direction": "association_without_direction"
+    },
+    {
+      "edge_id": "E10",
+      "var1": "education_num",
+      "var2": "hours_per_week",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.168806,
+      "effect_name": "rho",
+      "effect_size": "small",
+      "n": 22792,
+      "q_value": 6.259465153530884e-145,
+      "notes": "nan",
+      "inference_constraints": [
+        "effect_is_weak_or_modest",
+        "do_not_overstate_strength",
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.028496
+    },
+    {
+      "edge_id": "E11",
+      "var1": "age",
+      "var2": "education",
+      "type": "num_cat",
+      "relationship": "group_difference",
+      "test": "kruskal",
+      "effect": 0.054405,
+      "effect_name": "eta2_approx",
+      "effect_size": "small",
+      "n": 22792,
+      "q_value": 1.6702511074350843e-274,
+      "notes": "nonparametric_preferred",
+      "inference_constraints": [
+        "effect_is_weak_or_modest",
+        "do_not_overstate_strength",
+        "interpret_as_group_difference",
+        "nonparametric_test_used"
+      ],
+      "direction": "group_difference",
+      "variance_explained_approx": 0.054405
+    }
+  ],
+  "global_constraints": [
+    "do_not_infer_causality",
+    "do_not_use_external_facts",
+    "do_not_overstate_effect_sizes",
+    "prefer_non_redundant_hypotheses",
+    "prefer_hypotheses_that_synthesize_multiple_edges_when_supported",
+    "every_hypothesis_must_reference_at_least_one_edge",
+    "every_hypothesis_must_include_a_test_plan"
+  ],
+  "notes": [
+    "Top edges were selected with a per-variable cap.",
+    "Weight-like variables were excluded.",
+    "Near-deterministic edges were excluded."
+  ]
+}
+
+output_schema:
+{
+  "hypotheses": [
+    {
+      "id": "H1",
+      "variables": [
+        "income",
+        "education_num",
+        "age"
+      ],
+      "relationship_type": "association|group_difference|monotonic|category_association|multi_edge_pattern",
+      "direction": "positive|negative|group_difference|association_without_direction|unknown",
+      "claim": "One sentence grounded only in the evidence pack.",
+      "supporting_evidence": [
+        "E1",
+        "E4"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr|mannwhitneyu|kruskal|chi2|pearsonr|logistic_regression|linear_regression",
+        "null_hypothesis": "string",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "income",
+        "predictors": [
+          "education_num"
+        ],
+        "controls": [
+          "age"
+        ],
+        "expected_signs": {
+          "education_num": "positive",
+          "age": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "income ~ education_num + age"
+      },
+      "risk_flags": [
+        "weak_effect",
+        "possible_confounding",
+        "nonparametric_result",
+        "redundancy_risk"
+      ]
+    }
+  ]
+}
+
+For each hypothesis, you MUST follow this two-part structure:
+
+1. Hypothesis Statement (Formal)
+- State the relationship clearly and precisely using statistical language.
+- Specify variables and direction (positive, negative, monotonic, etc.) when applicable.
+- Avoid vague phrases like “is related to” unless no direction can be inferred.
+
+2. Interpretation (Insight)
+- Immediately explain what the relationship means in practical or real-world terms.
+- Clarify how the variables interact and why this pattern might occur.
+- If multiple variables are involved, explain their combined effect, not just individually.
+- Highlight any notable pattern (e.g., amplification, trade-off, interaction effect).
+
+Formatting:
+- Combine both parts into ONE coherent paragraph.
+- Start with the formal hypothesis, then follow with the interpretation.
+- Do NOT repeat the same idea in different words.
+- Do NOT produce separate bullet points.
+
+Quality constraints:
+- Avoid generic or obvious statements.
+- Prefer specific, data-driven insights over safe descriptions.
+- If multiple related hypotheses overlap, consolidate them into a single richer explanation.
+
+Return ONLY valid JSON. Do not include explanations, comments, or any text outside the JSON object.

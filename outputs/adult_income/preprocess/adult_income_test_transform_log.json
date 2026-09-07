@@ -1,0 +1,122 @@
+{
+  "dropped": {},
+  "imputed": {
+    "age": {
+      "method": "median",
+      "value": 37.0
+    },
+    "workclass": {
+      "method": "constant_missing",
+      "value": "missing"
+    },
+    "fnlwgt": {
+      "method": "median",
+      "value": 178233.0
+    },
+    "education": {
+      "method": "constant_missing",
+      "value": "missing"
+    },
+    "education_num": {
+      "method": "mean",
+      "value": 10.091216216216216
+    },
+    "marital_status": {
+      "method": "constant_missing",
+      "value": "missing"
+    },
+    "occupation": {
+      "method": "constant_missing",
+      "value": "missing"
+    },
+    "relationship": {
+      "method": "constant_missing",
+      "value": "missing"
+    },
+    "race": {
+      "method": "constant_missing",
+      "value": "missing"
+    },
+    "sex": {
+      "method": "constant_missing",
+      "value": "missing"
+    },
+    "capital_gain": {
+      "method": "median",
+      "value": 0.0
+    },
+    "capital_loss": {
+      "method": "median",
+      "value": 0.0
+    },
+    "hours_per_week": {
+      "method": "median",
+      "value": 40.0
+    },
+    "native_country": {
+      "method": "constant_missing",
+      "value": "missing"
+    },
+    "income": {
+      "method": "constant_missing",
+      "value": "missing"
+    }
+  },
+  "engineered": {
+    "age__is_outlier": {
+      "source": "age",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": -2.0,
+      "upper_bound": 78.0,
+      "outlier_rate_on_transformed": 0.005322960384890982
+    },
+    "workclass__is_missing": {
+      "source": "workclass",
+      "type": "missing_indicator"
+    },
+    "fnlwgt__is_outlier": {
+      "source": "fnlwgt",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": -61489.5,
+      "upper_bound": 416586.5,
+      "outlier_rate_on_transformed": 0.02989046985361859
+    },
+    "education_num__is_outlier": {
+      "source": "education_num",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 4.5,
+      "upper_bound": 16.5,
+      "outlier_rate_on_transformed": 0.03695362882587778
+    },
+    "occupation__is_missing": {
+      "source": "occupation",
+      "type": "missing_indicator"
+    },
+    "capital_gain__is_outlier": {
+      "source": "capital_gain",
+      "type": "outlier_flag",
+      "status": "skipped_no_bounds"
+    },
+    "capital_loss__is_outlier": {
+      "source": "capital_loss",
+      "type": "outlier_flag",
+      "status": "skipped_no_bounds"
+    },
+    "hours_per_week__is_outlier": {
+      "source": "hours_per_week",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 32.5,
+      "upper_bound": 52.5,
+      "outlier_rate_on_transformed": 0.2836523697410175
+    },
+    "native_country__is_missing": {
+      "source": "native_country",
+      "type": "missing_indicator"
+    }
+  },
+  "notes": []
+}

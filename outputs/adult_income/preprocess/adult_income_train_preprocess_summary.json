@@ -1,0 +1,20 @@
+{
+  "dataset": "adult_income_train",
+  "mode": "fit_transform",
+  "input_rows": 22792,
+  "input_cols": 15,
+  "output_rows": 22792,
+  "output_cols": 24,
+  "dropped_columns": [],
+  "engineered_columns": [
+    "age__is_outlier",
+    "workclass__is_missing",
+    "fnlwgt__is_outlier",
+    "education_num__is_outlier",
+    "occupation__is_missing",
+    "capital_gain__is_outlier",
+    "capital_loss__is_outlier",
+    "hours_per_week__is_outlier",
+    "native_country__is_missing"
+  ]
+}

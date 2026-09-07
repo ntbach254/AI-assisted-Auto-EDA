@@ -1,0 +1,9 @@
+{
+  "dataset": "adult_income_train",
+  "model": "gpt-oss:120b-cloud",
+  "temperature": 0.2,
+  "prompt_file": "E:\\THESIS 2\\THESIS 2\\THESIS 2\\outputs\\adult_income\\prompt\\adult_income_train_hypothesis_prompt.txt",
+  "raw_output_file": "E:\\THESIS 2\\THESIS 2\\THESIS 2\\outputs\\adult_income\\hypotheses\\adult_income_train_hypothesis_raw.txt",
+  "parsed_output_file": "E:\\THESIS 2\\THESIS 2\\THESIS 2\\outputs\\adult_income\\hypotheses\\adult_income_train_hypotheses.json",
+  "hypothesis_count": 15
+}
