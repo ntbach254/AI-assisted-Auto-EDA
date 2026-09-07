@@ -1,0 +1,496 @@
+{
+  "hypotheses": [
+    {
+      "id": "H1",
+      "variables": [
+        "free_sulfur_dioxide",
+        "total_sulfur_dioxide"
+      ],
+      "relationship_type": "monotonic",
+      "direction": "positive",
+      "claim": "We hypothesize that free_sulfur_dioxide is positively monotonic associated with total_sulfur_dioxide (Spearman rho = 0.798, p < 1e-246). This indicates that wines with higher free sulfur dioxide concentrations also tend to have higher total sulfur dioxide, reflecting a consistent sulfur profile across samples.",
+      "supporting_evidence": [
+        "E1"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "There is no monotonic association between free_sulfur_dioxide and total_sulfur_dioxide.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "total_sulfur_dioxide",
+        "predictors": [
+          "free_sulfur_dioxide"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "free_sulfur_dioxide": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "total_sulfur_dioxide ~ free_sulfur_dioxide"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H2",
+      "variables": [
+        "fixed_acidity",
+        "ph"
+      ],
+      "relationship_type": "association",
+      "direction": "negative",
+      "claim": "We hypothesize that fixed_acidity is negatively linearly associated with pH (Pearson r = -0.678, p < 1e-150). Higher fixed acidity corresponds to lower pH values, reflecting the expected acid-base balance in red wine.",
+      "supporting_evidence": [
+        "E2"
+      ],
+      "test_plan": {
+        "primary_test": "pearsonr",
+        "null_hypothesis": "There is no linear association between fixed_acidity and ph.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "ph",
+        "predictors": [
+          "fixed_acidity"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "fixed_acidity": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "ph ~ fixed_acidity"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H3",
+      "variables": [
+        "fixed_acidity",
+        "citric_acid"
+      ],
+      "relationship_type": "association",
+      "direction": "positive",
+      "claim": "We hypothesize that fixed_acidity is positively linearly associated with citric_acid (Pearson r = 0.661, p < 1e-140). This suggests that wines with higher fixed acidity also tend to contain more citric acid, indicating a coordinated acid composition.",
+      "supporting_evidence": [
+        "E3"
+      ],
+      "test_plan": {
+        "primary_test": "pearsonr",
+        "null_hypothesis": "There is no linear association between fixed_acidity and citric_acid.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "citric_acid",
+        "predictors": [
+          "fixed_acidity"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "fixed_acidity": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "citric_acid ~ fixed_acidity"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H4",
+      "variables": [
+        "fixed_acidity",
+        "density"
+      ],
+      "relationship_type": "association",
+      "direction": "positive",
+      "claim": "We hypothesize that fixed_acidity is positively linearly associated with density (Pearson r = 0.657, p < 1e-138). Higher fixed acidity appears to increase wine density, reflecting the contribution of dissolved acids to mass per volume.",
+      "supporting_evidence": [
+        "E4"
+      ],
+      "test_plan": {
+        "primary_test": "pearsonr",
+        "null_hypothesis": "There is no linear association between fixed_acidity and density.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "density",
+        "predictors": [
+          "fixed_acidity"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "fixed_acidity": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "density ~ fixed_acidity"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H5",
+      "variables": [
+        "volatile_acidity",
+        "citric_acid"
+      ],
+      "relationship_type": "association",
+      "direction": "negative",
+      "claim": "We hypothesize that volatile_acidity is negatively linearly associated with citric_acid (Pearson r = -0.551, p < 1e-89). Wines with higher volatile acidity tend to have lower citric acid levels, indicating a trade‑off between these two acid components.",
+      "supporting_evidence": [
+        "E5"
+      ],
+      "test_plan": {
+        "primary_test": "pearsonr",
+        "null_hypothesis": "There is no linear association between volatile_acidity and citric_acid.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "citric_acid",
+        "predictors": [
+          "volatile_acidity"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "volatile_acidity": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "citric_acid ~ volatile_acidity"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H6",
+      "variables": [
+        "citric_acid",
+        "ph"
+      ],
+      "relationship_type": "association",
+      "direction": "negative",
+      "claim": "We hypothesize that citric_acid is negatively linearly associated with pH (Pearson r = -0.533, p < 1e-82). Higher citric acid concentrations lower the pH, consistent with its acidic nature.",
+      "supporting_evidence": [
+        "E6"
+      ],
+      "test_plan": {
+        "primary_test": "pearsonr",
+        "null_hypothesis": "There is no linear association between citric_acid and ph.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "ph",
+        "predictors": [
+          "citric_acid"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "citric_acid": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "ph ~ citric_acid"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H7",
+      "variables": [
+        "alcohol",
+        "quality"
+      ],
+      "relationship_type": "association",
+      "direction": "positive",
+      "claim": "We hypothesize that alcohol content is positively linearly associated with wine quality (Pearson r = 0.492, p < 1e-68). Higher alcohol levels tend to correspond to higher quality ratings in the dataset.",
+      "supporting_evidence": [
+        "E7"
+      ],
+      "test_plan": {
+        "primary_test": "pearsonr",
+        "null_hypothesis": "There is no linear association between alcohol and quality.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "quality",
+        "predictors": [
+          "alcohol"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "alcohol": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "quality ~ alcohol"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H8",
+      "variables": [
+        "density",
+        "alcohol"
+      ],
+      "relationship_type": "association",
+      "direction": "negative",
+      "claim": "We hypothesize that density is negatively linearly associated with alcohol (Pearson r = -0.473, p < 1e-62). As alcohol concentration rises, wine density tends to decrease, reflecting alcohol's lower density relative to water.",
+      "supporting_evidence": [
+        "E8"
+      ],
+      "test_plan": {
+        "primary_test": "pearsonr",
+        "null_hypothesis": "There is no linear association between density and alcohol.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "alcohol",
+        "predictors": [
+          "density"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "density": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "alcohol ~ density"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H9",
+      "variables": [
+        "residual_sugar",
+        "density"
+      ],
+      "relationship_type": "monotonic",
+      "direction": "positive",
+      "claim": "We hypothesize that residual_sugar is positively monotonic associated with density (Spearman rho = 0.429, p < 1e-50). Higher residual sugar levels correspond to higher wine density, likely due to the added mass of sugars.",
+      "supporting_evidence": [
+        "E9"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "There is no monotonic association between residual_sugar and density.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "density",
+        "predictors": [
+          "residual_sugar"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "residual_sugar": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "density ~ residual_sugar"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H10",
+      "variables": [
+        "sulphates",
+        "quality"
+      ],
+      "relationship_type": "monotonic",
+      "direction": "positive",
+      "claim": "We hypothesize that sulphates are positively monotonic associated with quality (Spearman rho = 0.389, p < 1e-41). Wines with higher sulphate concentrations tend to receive higher quality scores.",
+      "supporting_evidence": [
+        "E10"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "There is no monotonic association between sulphates and quality.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "quality",
+        "predictors": [
+          "sulphates"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "sulphates": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "quality ~ sulphates"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H11",
+      "variables": [
+        "volatile_acidity",
+        "quality"
+      ],
+      "relationship_type": "association",
+      "direction": "negative",
+      "claim": "We hypothesize that volatile_acidity is negatively linearly associated with quality (Pearson r = -0.384, p < 1e-40). Higher volatile acidity corresponds to lower quality ratings, reflecting its detrimental sensory impact.",
+      "supporting_evidence": [
+        "E11"
+      ],
+      "test_plan": {
+        "primary_test": "pearsonr",
+        "null_hypothesis": "There is no linear association between volatile_acidity and quality.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "quality",
+        "predictors": [
+          "volatile_acidity"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "volatile_acidity": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "quality ~ volatile_acidity"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H12",
+      "variables": [
+        "volatile_acidity",
+        "sulphates"
+      ],
+      "relationship_type": "monotonic",
+      "direction": "negative",
+      "claim": "We hypothesize that volatile_acidity is negatively monotonic associated with sulphates (Spearman rho = -0.349, p < 1e-32). Higher volatile acidity tends to co‑occur with lower sulphate levels, suggesting an inverse relationship between these components.",
+      "supporting_evidence": [
+        "E12"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "There is no monotonic association between volatile_acidity and sulphates.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "sulphates",
+        "predictors": [
+          "volatile_acidity"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "volatile_acidity": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "sulphates ~ volatile_acidity"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H13",
+      "variables": [
+        "fixed_acidity",
+        "density",
+        "citric_acid",
+        "ph"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "We hypothesize that fixed_acidity is simultaneously positively associated with density and citric_acid, and negatively associated with pH, reflecting a coordinated acid‑density‑pH pattern (supported by edges E2, E3, E4). This pattern suggests that higher fixed acidity drives both higher density and citric acid content while lowering pH, indicating a linked chemical profile.",
+      "supporting_evidence": [
+        "E2",
+        "E3",
+        "E4"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Fixed_acidity is not jointly associated with density, citric_acid, and ph.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "fixed_acidity",
+        "predictors": [
+          "density",
+          "citric_acid",
+          "ph"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "density": "positive",
+          "citric_acid": "positive",
+          "ph": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "fixed_acidity ~ density + citric_acid + ph"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H17",
+      "variables": [
+        "volatile_acidity",
+        "sulphates",
+        "quality",
+        "citric_acid"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "We hypothesize that volatile_acidity is negatively associated with sulphates and quality, and positively associated with citric_acid (edges E5, E11, E12), indicating that higher volatile acidity coincides with lower sulphate levels and lower quality, while aligning with higher citric acid.",
+      "supporting_evidence": [
+        "E5",
+        "E11",
+        "E12"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Volatile_acidity is not jointly associated with sulphates, quality, and citric_acid.",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "volatile_acidity",
+        "predictors": [
+          "sulphates",
+          "quality",
+          "citric_acid"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "sulphates": "negative",
+          "quality": "negative",
+          "citric_acid": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "volatile_acidity ~ sulphates + quality + citric_acid"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    }
+  ]
+}

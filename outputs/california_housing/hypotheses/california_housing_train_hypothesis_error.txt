@@ -1,0 +1,536 @@
+ValueError: Hypothesis 1 missing keys: ['risk_flags']
+
+RAW OUTPUT:
+{
+  "hypotheses": [
+    {
+      "id": "H1",
+      "variables": [
+        "medinc",
+        "medhouseval",
+        "averooms"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "positive",
+      "claim": "Higher median income is jointly associated with higher median house values and larger average numbers of rooms, and these two housing characteristics are themselves positively related.",
+      "supporting_evidence": [
+        "E2",
+        "E3",
+        "E6"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for medinc and averooms are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "medhouseval",
+        "predictors": [
+          "medinc",
+          "averooms"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "medinc": "positive",
+          "averooms": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "medhouseval ~ medinc + averooms"
+      }
+    },
+    {
+      "id": "H2",
+      "variables": [
+        "houseage",
+        "population",
+        "averooms"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "negative",
+      "claim": "Older houses tend to be located in areas with lower population and fewer average rooms.",
+      "supporting_evidence": [
+        "E4",
+        "E9"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for houseage are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "population",
+        "predictors": [
+          "houseage"
+        ],
+        "controls": [
+          "averooms"
+        ],
+        "expected_signs": {
+          "houseage": "negative",
+          "averooms": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "population ~ houseage + averooms"
+      }
+    },
+    {
+      "id": "H3",
+      "variables": [
+        "aveoccup",
+        "medhouseval",
+        "longitude"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Higher average occupancy is observed in more easterly locations and is linked to lower median house values.",
+      "supporting_evidence": [
+        "E5",
+        "E10"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for aveoccup and longitude are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "medhouseval",
+        "predictors": [
+          "aveoccup",
+          "longitude"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "aveoccup": "negative",
+          "longitude": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "medhouseval ~ aveoccup + longitude"
+      }
+    },
+    {
+      "id": "H4",
+      "variables": [
+        "population",
+        "aveoccup",
+        "longitude"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "positive",
+      "claim": "Areas with larger populations tend to have higher average occupancy, which in turn is higher at more easterly longitudes.",
+      "supporting_evidence": [
+        "E8",
+        "E10"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for population and longitude are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "aveoccup",
+        "predictors": [
+          "population",
+          "longitude"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "population": "positive",
+          "longitude": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "aveoccup ~ population + longitude"
+      }
+    },
+    {
+      "id": "H5",
+      "variables": [
+        "medinc",
+        "avebedrms",
+        "averooms"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Higher median income corresponds to fewer average bedrooms but more average rooms.",
+      "supporting_evidence": [
+        "E7",
+        "E3"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for medinc and avebedrms are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "averooms",
+        "predictors": [
+          "medinc"
+        ],
+        "controls": [
+          "avebedrms"
+        ],
+        "expected_signs": {
+          "medinc": "positive",
+          "avebedrms": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "averooms ~ medinc + avebedrms"
+      }
+    },
+    {
+      "id": "H6",
+      "variables": [
+        "medinc",
+        "medhouseval",
+        "avebedrms"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Higher median income is linked to higher median house values while being associated with fewer average bedrooms.",
+      "supporting_evidence": [
+        "E2",
+        "E7"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for medinc and avebedrms are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "medhouseval",
+        "predictors": [
+          "medinc",
+          "avebedrms"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "medinc": "positive",
+          "avebedrms": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "medhouseval ~ medinc + avebedrms"
+      }
+    },
+    {
+      "id": "H7",
+      "variables": [
+        "longitude",
+        "aveoccup",
+        "latitude"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Longitudinal position is positively related to average occupancy and inversely related to latitude.",
+      "supporting_evidence": [
+        "E10",
+        "E1"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for longitude and latitude are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "aveoccup",
+        "predictors": [
+          "longitude",
+          "latitude"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "longitude": "positive",
+          "latitude": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "aveoccup ~ longitude + latitude"
+      }
+    },
+    {
+      "id": "H8",
+      "variables": [
+        "houseage",
+        "population",
+        "aveoccup"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "negative",
+      "claim": "Older houses are associated with lower average occupancy, reflecting their negative relationship with population size.",
+      "supporting_evidence": [
+        "E4",
+        "E8"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for houseage and population are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "aveoccup",
+        "predictors": [
+          "houseage"
+        ],
+        "controls": [
+          "population"
+        ],
+        "expected_signs": {
+          "houseage": "negative",
+          "population": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "aveoccup ~ houseage + population"
+      }
+    },
+    {
+      "id": "H9",
+      "variables": [
+        "houseage",
+        "population",
+        "aveoccup"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "negative",
+      "claim": "Older houses are linked to reduced average occupancy, mediated by their negative association with population.",
+      "supporting_evidence": [
+        "E4",
+        "E8"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for houseage and population are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "aveoccup",
+        "predictors": [
+          "houseage",
+          "population"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "houseage": "negative",
+          "population": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "aveoccup ~ houseage + population"
+      }
+    },
+    {
+      "id": "H10",
+      "variables": [
+        "houseage",
+        "population",
+        "averooms"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "negative",
+      "claim": "Older houses are found in areas with lower population and fewer average rooms.",
+      "supporting_evidence": [
+        "E4",
+        "E9"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for population and averooms are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "houseage",
+        "predictors": [
+          "population",
+          "averooms"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "population": "negative",
+          "averooms": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "houseage ~ population + averooms"
+      }
+    },
+    {
+      "id": "H11",
+      "variables": [
+        "medinc",
+        "medhouseval",
+        "averooms"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "positive",
+      "claim": "Higher median income is associated with higher median house values and larger average numbers of rooms.",
+      "supporting_evidence": [
+        "E2",
+        "E3"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for medhouseval and averooms are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "medinc",
+        "predictors": [
+          "medhouseval",
+          "averooms"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "medhouseval": "positive",
+          "averooms": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "medinc ~ medhouseval + averooms"
+      }
+    },
+    {
+      "id": "H12",
+      "variables": [
+        "aveoccup",
+        "population",
+        "longitude"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "positive",
+      "claim": "Higher average occupancy occurs in more populous and more easterly locations.",
+      "supporting_evidence": [
+        "E8",
+        "E10"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for population and longitude are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "aveoccup",
+        "predictors": [
+          "population",
+          "longitude"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "population": "positive",
+          "longitude": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "aveoccup ~ population + longitude"
+      }
+    },
+    {
+      "id": "H13",
+      "variables": [
+        "averooms",
+        "medinc",
+        "houseage"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Average number of rooms tends to be higher where median income is higher and houses are newer.",
+      "supporting_evidence": [
+        "E3",
+        "E9"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for medinc and houseage are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "averooms",
+        "predictors": [
+          "medinc",
+          "houseage"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "medinc": "positive",
+          "houseage": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "averooms ~ medinc + houseage"
+      }
+    },
+    {
+      "id": "H14",
+      "variables": [
+        "medhouseval",
+        "medinc",
+        "aveoccup"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Median house value rises with median income while falling with higher average occupancy.",
+      "supporting_evidence": [
+        "E2",
+        "E5"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for medinc and aveoccup are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "medhouseval",
+        "predictors": [
+          "medinc",
+          "aveoccup"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "medinc": "positive",
+          "aveoccup": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "medhouseval ~ medinc + aveoccup"
+      }
+    },
+    {
+      "id": "H15",
+      "variables": [
+        "population",
+        "houseage",
+        "aveoccup"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Population size tends to be lower where houses are older but higher where average occupancy is greater.",
+      "supporting_evidence": [
+        "E4",
+        "E8"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "Coefficients for houseage and aveoccup are zero",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "population",
+        "predictors": [
+          "houseage",
+          "aveoccup"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "houseage": "negative",
+          "aveoccup": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "population ~ houseage + aveoccup"
+      }
+    }
+  ]
+}

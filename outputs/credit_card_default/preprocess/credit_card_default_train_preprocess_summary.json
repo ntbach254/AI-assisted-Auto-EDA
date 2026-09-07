@@ -1,0 +1,37 @@
+{
+  "dataset": "credit_card_default_train",
+  "mode": "fit_transform",
+  "input_rows": 21000,
+  "input_cols": 25,
+  "output_rows": 21000,
+  "output_cols": 48,
+  "dropped_columns": [
+    "id"
+  ],
+  "engineered_columns": [
+    "limit_bal__is_outlier",
+    "sex__is_outlier",
+    "education__is_outlier",
+    "marriage__is_outlier",
+    "age__is_outlier",
+    "pay_0__is_outlier",
+    "pay_2__is_outlier",
+    "pay_3__is_outlier",
+    "pay_4__is_outlier",
+    "pay_5__is_outlier",
+    "pay_6__is_outlier",
+    "bill_amt1__is_outlier",
+    "bill_amt2__is_outlier",
+    "bill_amt3__is_outlier",
+    "bill_amt4__is_outlier",
+    "bill_amt5__is_outlier",
+    "bill_amt6__is_outlier",
+    "pay_amt1__is_outlier",
+    "pay_amt2__is_outlier",
+    "pay_amt3__is_outlier",
+    "pay_amt4__is_outlier",
+    "pay_amt5__is_outlier",
+    "pay_amt6__is_outlier",
+    "default_payment_next_month__is_outlier"
+  ]
+}

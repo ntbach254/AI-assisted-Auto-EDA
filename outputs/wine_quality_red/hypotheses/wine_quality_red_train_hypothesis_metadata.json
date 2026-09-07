@@ -1,0 +1,9 @@
+{
+  "dataset": "wine_quality_red_train",
+  "model": "gpt-oss:120b-cloud",
+  "temperature": 0.2,
+  "prompt_file": "D:\\THESIS\\outputs\\wine_quality_red\\prompt\\wine_quality_red_train_hypothesis_prompt.txt",
+  "raw_output_file": "D:\\THESIS\\outputs\\wine_quality_red\\hypotheses\\wine_quality_red_train_hypothesis_raw.txt",
+  "parsed_output_file": "D:\\THESIS\\outputs\\wine_quality_red\\hypotheses\\wine_quality_red_train_hypotheses.json",
+  "hypothesis_count": 17
+}

@@ -1,0 +1,20 @@
+{
+  "dataset": "california_housing_train",
+  "mode": "fit_transform",
+  "input_rows": 14448,
+  "input_cols": 9,
+  "output_rows": 14448,
+  "output_cols": 18,
+  "dropped_columns": [],
+  "engineered_columns": [
+    "medinc__is_outlier",
+    "houseage__is_outlier",
+    "averooms__is_outlier",
+    "avebedrms__is_outlier",
+    "population__is_outlier",
+    "aveoccup__is_outlier",
+    "latitude__is_outlier",
+    "longitude__is_outlier",
+    "medhouseval__is_outlier"
+  ]
+}

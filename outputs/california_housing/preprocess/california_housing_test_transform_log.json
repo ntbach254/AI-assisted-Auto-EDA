@@ -1,0 +1,116 @@
+{
+  "dropped": {},
+  "imputed": {
+    "medinc": {
+      "method": "median",
+      "value": 3.5391
+    },
+    "houseage": {
+      "method": "mean",
+      "value": 28.575373754152825
+    },
+    "averooms": {
+      "method": "median",
+      "value": 5.232422402159244
+    },
+    "avebedrms": {
+      "method": "median",
+      "value": 1.0494920585808583
+    },
+    "population": {
+      "method": "median",
+      "value": 1168.0
+    },
+    "aveoccup": {
+      "method": "median",
+      "value": 2.8171468572691767
+    },
+    "latitude": {
+      "method": "mean",
+      "value": 35.650669296788486
+    },
+    "longitude": {
+      "method": "mean",
+      "value": -119.5841022978959
+    },
+    "medhouseval": {
+      "method": "median",
+      "value": 1.793
+    }
+  },
+  "engineered": {
+    "medinc__is_outlier": {
+      "source": "medinc",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": -0.7190499999999997,
+      "upper_bound": 8.04435,
+      "outlier_rate_on_transformed": 0.031492248062015504
+    },
+    "houseage__is_outlier": {
+      "source": "houseage",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": -10.5,
+      "upper_bound": 65.5,
+      "outlier_rate_on_transformed": 0.0
+    },
+    "averooms__is_outlier": {
+      "source": "averooms",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 2.0312831701205716,
+      "upper_bound": 8.478337129883949,
+      "outlier_rate_on_transformed": 0.022448320413436692
+    },
+    "avebedrms__is_outlier": {
+      "source": "avebedrms",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 0.8664661479120397,
+      "upper_bound": 1.2406447151891082,
+      "outlier_rate_on_transformed": 0.0647609819121447
+    },
+    "population__is_outlier": {
+      "source": "population",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": -613.0,
+      "upper_bound": 3131.0,
+      "outlier_rate_on_transformed": 0.05862403100775194
+    },
+    "aveoccup__is_outlier": {
+      "source": "aveoccup",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 1.1572472753645593,
+      "upper_bound": 4.552267199286916,
+      "outlier_rate_on_transformed": 0.034722222222222224
+    },
+    "latitude__is_outlier": {
+      "source": "latitude",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 28.269999999999996,
+      "upper_bound": 43.39,
+      "outlier_rate_on_transformed": 0.0
+    },
+    "longitude__is_outlier": {
+      "source": "longitude",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": -127.48499999999999,
+      "upper_bound": -112.32500000000002,
+      "outlier_rate_on_transformed": 0.0
+    },
+    "medhouseval__is_outlier": {
+      "source": "medhouseval",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": -0.9864999999999999,
+      "upper_bound": 4.8255,
+      "outlier_rate_on_transformed": 0.04893410852713178
+    }
+  },
+  "notes": []
+}

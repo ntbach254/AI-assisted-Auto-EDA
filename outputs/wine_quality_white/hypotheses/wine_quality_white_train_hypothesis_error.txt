@@ -1,0 +1,577 @@
+ValueError: Hypothesis 1 missing keys: ['risk_flags']
+
+RAW OUTPUT:
+{
+  "hypotheses": [
+    {
+      "id": "H1",
+      "variables": [
+        "density",
+        "alcohol",
+        "residual_sugar"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Density is jointly associated with alcohol (negative) and residual sugar (positive) in the wine dataset.",
+      "supporting_evidence": [
+        "E1",
+        "E2"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "No linear relationship between density and the predictors alcohol and residual_sugar",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "density",
+        "predictors": [
+          "alcohol",
+          "residual_sugar"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "alcohol": "negative",
+          "residual_sugar": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "density ~ alcohol + residual_sugar"
+      }
+    },
+    {
+      "id": "H2",
+      "variables": [
+        "alcohol",
+        "density",
+        "chlorides",
+        "total_sulfur_dioxide"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Alcohol level is jointly negatively related to density, chlorides, and total sulfur dioxide.",
+      "supporting_evidence": [
+        "E1",
+        "E4",
+        "E6"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "No linear relationship between alcohol and the predictors density, chlorides, total_sulfur_dioxide",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "alcohol",
+        "predictors": [
+          "density",
+          "chlorides",
+          "total_sulfur_dioxide"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "density": "negative",
+          "chlorides": "negative",
+          "total_sulfur_dioxide": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "alcohol ~ density + chlorides + total_sulfur_dioxide"
+      }
+    },
+    {
+      "id": "H3",
+      "variables": [
+        "quality",
+        "chlorides",
+        "volatile_acidity"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Wine quality decreases as chlorides and volatile acidity increase.",
+      "supporting_evidence": [
+        "E9",
+        "E12"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "No linear relationship between quality and the predictors chlorides, volatile_acidity",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "quality",
+        "predictors": [
+          "chlorides",
+          "volatile_acidity"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "chlorides": "negative",
+          "volatile_acidity": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "quality ~ chlorides + volatile_acidity"
+      }
+    },
+    {
+      "id": "H4",
+      "variables": [
+        "total_sulfur_dioxide",
+        "free_sulfur_dioxide",
+        "density"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Total sulfur dioxide rises with higher free sulfur dioxide and greater density.",
+      "supporting_evidence": [
+        "E3",
+        "E5"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "No linear relationship between total_sulfur_dioxide and the predictors free_sulfur_dioxide, density",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "total_sulfur_dioxide",
+        "predictors": [
+          "free_sulfur_dioxide",
+          "density"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "free_sulfur_dioxide": "positive",
+          "density": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "total_sulfur_dioxide ~ free_sulfur_dioxide + density"
+      }
+    },
+    {
+      "id": "H5",
+      "variables": [
+        "residual_sugar",
+        "density",
+        "chlorides",
+        "free_sulfur_dioxide"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Residual sugar is positively associated with density, chlorides, and free sulfur dioxide.",
+      "supporting_evidence": [
+        "E2",
+        "E11",
+        "E8"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "No linear relationship between residual_sugar and the predictors density, chlorides, free_sulfur_dioxide",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "residual_sugar",
+        "predictors": [
+          "density",
+          "chlorides",
+          "free_sulfur_dioxide"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "density": "positive",
+          "chlorides": "positive",
+          "free_sulfur_dioxide": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "residual_sugar ~ density + chlorides + free_sulfur_dioxide"
+      }
+    },
+    {
+      "id": "H6",
+      "variables": [
+        "residual_sugar",
+        "total_sulfur_dioxide",
+        "density"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Controlling for density, residual sugar shows a positive association with total sulfur dioxide.",
+      "supporting_evidence": [
+        "E2",
+        "E5"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "No linear relationship between residual_sugar and total_sulfur_dioxide after adjusting for density",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "residual_sugar",
+        "predictors": [
+          "total_sulfur_dioxide"
+        ],
+        "controls": [
+          "density"
+        ],
+        "expected_signs": {
+          "total_sulfur_dioxide": "positive",
+          "density": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "residual_sugar ~ total_sulfur_dioxide + density"
+      }
+    },
+    {
+      "id": "H7",
+      "variables": [
+        "density",
+        "total_sulfur_dioxide",
+        "alcohol"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "After accounting for alcohol, density remains positively linked to total sulfur dioxide.",
+      "supporting_evidence": [
+        "E5",
+        "E1"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "No linear relationship between density and total_sulfur_dioxide after adjusting for alcohol",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "density",
+        "predictors": [
+          "total_sulfur_dioxide"
+        ],
+        "controls": [
+          "alcohol"
+        ],
+        "expected_signs": {
+          "total_sulfur_dioxide": "positive",
+          "alcohol": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "density ~ total_sulfur_dioxide + alcohol"
+      }
+    },
+    {
+      "id": "H8",
+      "variables": [
+        "free_sulfur_dioxide",
+        "residual_sugar",
+        "total_sulfur_dioxide"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "When adjusting for total sulfur dioxide, free sulfur dioxide is positively related to residual sugar.",
+      "supporting_evidence": [
+        "E8",
+        "E3"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "No linear relationship between free_sulfur_dioxide and residual_sugar after adjusting for total_sulfur_dioxide",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "free_sulfur_dioxide",
+        "predictors": [
+          "residual_sugar"
+        ],
+        "controls": [
+          "total_sulfur_dioxide"
+        ],
+        "expected_signs": {
+          "residual_sugar": "positive",
+          "total_sulfur_dioxide": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "free_sulfur_dioxide ~ residual_sugar + total_sulfur_dioxide"
+      }
+    },
+    {
+      "id": "H9",
+      "variables": [
+        "alcohol",
+        "chlorides"
+      ],
+      "relationship_type": "monotonic",
+      "direction": "negative",
+      "claim": "Alcohol content decreases monotonically as chlorides increase.",
+      "supporting_evidence": [
+        "E4"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "No monotonic association between alcohol and chlorides",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "alcohol",
+        "predictors": [
+          "chlorides"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "chlorides": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "alcohol ~ chlorides"
+      }
+    },
+    {
+      "id": "H10",
+      "variables": [
+        "fixed_acidity",
+        "ph"
+      ],
+      "relationship_type": "association",
+      "direction": "negative",
+      "claim": "Higher fixed acidity is linearly associated with lower pH.",
+      "supporting_evidence": [
+        "E7"
+      ],
+      "test_plan": {
+        "primary_test": "pearsonr",
+        "null_hypothesis": "No linear correlation between fixed_acidity and ph",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "ph",
+        "predictors": [
+          "fixed_acidity"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "fixed_acidity": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "ph ~ fixed_acidity"
+      }
+    },
+    {
+      "id": "H11",
+      "variables": [
+        "free_sulfur_dioxide",
+        "total_sulfur_dioxide"
+      ],
+      "relationship_type": "association",
+      "direction": "positive",
+      "claim": "Free sulfur dioxide increases linearly with total sulfur dioxide.",
+      "supporting_evidence": [
+        "E3"
+      ],
+      "test_plan": {
+        "primary_test": "pearsonr",
+        "null_hypothesis": "No linear correlation between free_sulfur_dioxide and total_sulfur_dioxide",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "free_sulfur_dioxide",
+        "predictors": [
+          "total_sulfur_dioxide"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "total_sulfur_dioxide": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "free_sulfur_dioxide ~ total_sulfur_dioxide"
+      }
+    },
+    {
+      "id": "H12",
+      "variables": [
+        "residual_sugar",
+        "free_sulfur_dioxide"
+      ],
+      "relationship_type": "monotonic",
+      "direction": "positive",
+      "claim": "Residual sugar rises monotonically with free sulfur dioxide.",
+      "supporting_evidence": [
+        "E8"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "No monotonic association between residual_sugar and free_sulfur_dioxide",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "residual_sugar",
+        "predictors": [
+          "free_sulfur_dioxide"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "free_sulfur_dioxide": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "residual_sugar ~ free_sulfur_dioxide"
+      }
+    },
+    {
+      "id": "H13",
+      "variables": [
+        "chlorides",
+        "quality"
+      ],
+      "relationship_type": "monotonic",
+      "direction": "negative",
+      "claim": "Wine quality declines as chlorides increase.",
+      "supporting_evidence": [
+        "E9"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "No monotonic association between chlorides and quality",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "quality",
+        "predictors": [
+          "chlorides"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "chlorides": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "quality ~ chlorides"
+      }
+    },
+    {
+      "id": "H14",
+      "variables": [
+        "volatile_acidity",
+        "quality"
+      ],
+      "relationship_type": "monotonic",
+      "direction": "negative",
+      "claim": "Higher volatile acidity is associated with lower wine quality.",
+      "supporting_evidence": [
+        "E12"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "No monotonic association between volatile_acidity and quality",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "quality",
+        "predictors": [
+          "volatile_acidity"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "volatile_acidity": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "quality ~ volatile_acidity"
+      }
+    },
+    {
+      "id": "H15",
+      "variables": [
+        "fixed_acidity",
+        "citric_acid"
+      ],
+      "relationship_type": "monotonic",
+      "direction": "positive",
+      "claim": "Fixed acidity is positively monotonic with citric acid.",
+      "supporting_evidence": [
+        "E10"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "No monotonic association between fixed_acidity and citric_acid",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "citric_acid",
+        "predictors": [
+          "fixed_acidity"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "fixed_acidity": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "citric_acid ~ fixed_acidity"
+      }
+    },
+    {
+      "id": "H16",
+      "variables": [
+        "total_sulfur_dioxide",
+        "alcohol"
+      ],
+      "relationship_type": "association",
+      "direction": "negative",
+      "claim": "Total sulfur dioxide is linearly negatively associated with alcohol content.",
+      "supporting_evidence": [
+        "E6"
+      ],
+      "test_plan": {
+        "primary_test": "pearsonr",
+        "null_hypothesis": "No linear correlation between total_sulfur_dioxide and alcohol",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "alcohol",
+        "predictors": [
+          "total_sulfur_dioxide"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "total_sulfur_dioxide": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "alcohol ~ total_sulfur_dioxide"
+      }
+    },
+    {
+      "id": "H17",
+      "variables": [
+        "residual_sugar",
+        "chlorides"
+      ],
+      "relationship_type": "monotonic",
+      "direction": "positive",
+      "claim": "Residual sugar shows a weak positive monotonic relationship with chlorides.",
+      "supporting_evidence": [
+        "E11"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "No monotonic association between residual_sugar and chlorides",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "residual_sugar",
+        "predictors": [
+          "chlorides"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "chlorides": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "residual_sugar ~ chlorides"
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "dataset": "wine_quality_white_test",
+  "mode": "transform_only",
+  "input_rows": 1470,
+  "input_cols": 12,
+  "output_rows": 1470,
+  "output_cols": 24,
+  "dropped_columns": [],
+  "engineered_columns": [
+    "fixed_acidity__is_outlier",
+    "volatile_acidity__is_outlier",
+    "citric_acid__is_outlier",
+    "residual_sugar__is_outlier",
+    "chlorides__is_outlier",
+    "free_sulfur_dioxide__is_outlier",
+    "total_sulfur_dioxide__is_outlier",
+    "density__is_outlier",
+    "ph__is_outlier",
+    "sulphates__is_outlier",
+    "alcohol__is_outlier",
+    "quality__is_outlier"
+  ]
+}

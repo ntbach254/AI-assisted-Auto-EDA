@@ -1,0 +1,9 @@
+{
+  "dataset": "california_housing_train",
+  "model": "gpt-oss:120b-cloud",
+  "temperature": 0.2,
+  "prompt_file": "D:\\THESIS\\outputs\\california_housing\\prompt\\california_housing_train_hypothesis_prompt.txt",
+  "raw_output_file": "D:\\THESIS\\outputs\\california_housing\\hypotheses\\california_housing_train_hypothesis_raw.txt",
+  "parsed_output_file": "D:\\THESIS\\outputs\\california_housing\\hypotheses\\california_housing_train_hypotheses.json",
+  "hypothesis_count": 15
+}

@@ -1,0 +1,272 @@
+{
+  "policy": {
+    "missing_threshold": 0.4,
+    "drop_constant": true,
+    "drop_id_like": true,
+    "drop_high_missing": true,
+    "add_outlier_flags": true,
+    "add_missing_indicators": true,
+    "skew_mean_threshold": 0.5,
+    "outlier_rate_mean_threshold": 0.05,
+    "min_stats_n": 30,
+    "categorical_missing_token": "missing"
+  },
+  "columns": {
+    "fixed_acidity": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 6.8
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": 4.8,
+        "upper_bound": 8.8
+      }
+    },
+    "volatile_acidity": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 0.26
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": 0.029999999999999943,
+        "upper_bound": 0.51
+      }
+    },
+    "citric_acid": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 0.32
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": 0.10500000000000004,
+        "upper_bound": 0.5449999999999999
+      }
+    },
+    "residual_sugar": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 5.2
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -10.600000000000001,
+        "upper_bound": 22.200000000000003
+      }
+    },
+    "chlorides": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 0.043
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": 0.014999999999999989,
+        "upper_bound": 0.07100000000000001
+      }
+    },
+    "free_sulfur_dioxide": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 34.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -11.5,
+        "upper_bound": 80.5
+      }
+    },
+    "total_sulfur_dioxide": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "mean",
+        "value": 138.198512252042
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": 22.0,
+        "upper_bound": 254.0
+      }
+    },
+    "density": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 0.9937
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": 0.9851449999999999,
+        "upper_bound": 1.002705
+      }
+    },
+    "ph": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "mean",
+        "value": 3.189282380396733
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": 2.8049999999999997,
+        "upper_bound": 3.5649999999999995
+      }
+    },
+    "sulphates": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 0.47
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": 0.19999999999999987,
+        "upper_bound": 0.7600000000000001
+      }
+    },
+    "alcohol": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "mean",
+        "value": 10.509993193309997
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": 6.6499999999999995,
+        "upper_bound": 14.25
+      }
+    },
+    "quality": {
+      "feature_type": "numeric_ordinal",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "mean",
+        "value": 5.86901983663944
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": 3.5,
+        "upper_bound": 7.5
+      }
+    }
+  },
+  "raw_input_columns": [
+    "fixed_acidity",
+    "volatile_acidity",
+    "citric_acid",
+    "residual_sugar",
+    "chlorides",
+    "free_sulfur_dioxide",
+    "total_sulfur_dioxide",
+    "density",
+    "ph",
+    "sulphates",
+    "alcohol",
+    "quality"
+  ],
+  "output_columns": [
+    "fixed_acidity",
+    "fixed_acidity__is_outlier",
+    "volatile_acidity",
+    "volatile_acidity__is_outlier",
+    "citric_acid",
+    "citric_acid__is_outlier",
+    "residual_sugar",
+    "residual_sugar__is_outlier",
+    "chlorides",
+    "chlorides__is_outlier",
+    "free_sulfur_dioxide",
+    "free_sulfur_dioxide__is_outlier",
+    "total_sulfur_dioxide",
+    "total_sulfur_dioxide__is_outlier",
+    "density",
+    "density__is_outlier",
+    "ph",
+    "ph__is_outlier",
+    "sulphates",
+    "sulphates__is_outlier",
+    "alcohol",
+    "alcohol__is_outlier",
+    "quality",
+    "quality__is_outlier"
+  ]
+}

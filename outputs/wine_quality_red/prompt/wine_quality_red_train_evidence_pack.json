@@ -1,0 +1,336 @@
+{
+  "schema_version": "2.3",
+  "dataset": "wine_quality_red_train",
+  "summary": {
+    "n_edges": 12,
+    "n_variables": 11,
+    "association_types_present": [
+      "num_num"
+    ],
+    "tests_present": [
+      "pearsonr",
+      "spearmanr"
+    ]
+  },
+  "variables": {
+    "alcohol": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 60,
+      "skewness": 0.915476,
+      "outlier_rate": 0.014298,
+      "issues": []
+    },
+    "citric_acid": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 79,
+      "skewness": 0.323062,
+      "outlier_rate": 0.000894,
+      "issues": []
+    },
+    "density": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 360,
+      "skewness": 0.023791,
+      "outlier_rate": 0.031278,
+      "issues": []
+    },
+    "fixed_acidity": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 91,
+      "skewness": 0.994178,
+      "outlier_rate": 0.030384,
+      "issues": []
+    },
+    "free_sulfur_dioxide": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 55,
+      "skewness": 1.189915,
+      "outlier_rate": 0.014298,
+      "issues": []
+    },
+    "ph": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 85,
+      "skewness": 0.198162,
+      "outlier_rate": 0.033065,
+      "issues": []
+    },
+    "quality": {
+      "feature_type": "numeric_ordinal",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 6,
+      "skewness": 0.189729,
+      "outlier_rate": 0.018767,
+      "issues": []
+    },
+    "residual_sugar": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 79,
+      "skewness": 4.511256,
+      "outlier_rate": 0.099196,
+      "issues": []
+    },
+    "sulphates": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 91,
+      "skewness": 2.553588,
+      "outlier_rate": 0.038427,
+      "issues": []
+    },
+    "total_sulfur_dioxide": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 137,
+      "skewness": 1.382031,
+      "outlier_rate": 0.029491,
+      "issues": []
+    },
+    "volatile_acidity": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 134,
+      "skewness": 0.755871,
+      "outlier_rate": 0.014298,
+      "issues": []
+    }
+  },
+  "edges": [
+    {
+      "edge_id": "E1",
+      "var1": "free_sulfur_dioxide",
+      "var2": "total_sulfur_dioxide",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.798387,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 1119,
+      "q_value": 1.6637572858791233e-246,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.637421
+    },
+    {
+      "edge_id": "E2",
+      "var1": "fixed_acidity",
+      "var2": "ph",
+      "type": "num_num",
+      "relationship": "linear",
+      "test": "pearsonr",
+      "effect": -0.678213,
+      "effect_name": "r",
+      "effect_size": "large",
+      "n": 1119,
+      "q_value": 4.1545180050441525e-150,
+      "notes": "nan",
+      "direction": "negative",
+      "variance_explained_approx": 0.459973
+    },
+    {
+      "edge_id": "E3",
+      "var1": "fixed_acidity",
+      "var2": "citric_acid",
+      "type": "num_num",
+      "relationship": "linear",
+      "test": "pearsonr",
+      "effect": 0.660645,
+      "effect_name": "r",
+      "effect_size": "large",
+      "n": 1119,
+      "q_value": 6.232596694117012e-140,
+      "notes": "nan",
+      "direction": "positive",
+      "variance_explained_approx": 0.436452
+    },
+    {
+      "edge_id": "E4",
+      "var1": "fixed_acidity",
+      "var2": "density",
+      "type": "num_num",
+      "relationship": "linear",
+      "test": "pearsonr",
+      "effect": 0.656636,
+      "effect_name": "r",
+      "effect_size": "large",
+      "n": 1119,
+      "q_value": 8.604213833267493e-138,
+      "notes": "nan",
+      "direction": "positive",
+      "variance_explained_approx": 0.431171
+    },
+    {
+      "edge_id": "E5",
+      "var1": "volatile_acidity",
+      "var2": "citric_acid",
+      "type": "num_num",
+      "relationship": "linear",
+      "test": "pearsonr",
+      "effect": -0.551099,
+      "effect_name": "r",
+      "effect_size": "large",
+      "n": 1119,
+      "q_value": 9.007129345175313e-89,
+      "notes": "nan",
+      "direction": "negative",
+      "variance_explained_approx": 0.30371
+    },
+    {
+      "edge_id": "E6",
+      "var1": "citric_acid",
+      "var2": "ph",
+      "type": "num_num",
+      "relationship": "linear",
+      "test": "pearsonr",
+      "effect": -0.53323,
+      "effect_name": "r",
+      "effect_size": "large",
+      "n": 1119,
+      "q_value": 3.5244939255140946e-82,
+      "notes": "nan",
+      "direction": "negative",
+      "variance_explained_approx": 0.284334
+    },
+    {
+      "edge_id": "E7",
+      "var1": "alcohol",
+      "var2": "quality",
+      "type": "num_num",
+      "relationship": "linear",
+      "test": "pearsonr",
+      "effect": 0.492034,
+      "effect_name": "r",
+      "effect_size": "medium",
+      "n": 1119,
+      "q_value": 2.650094734286029e-68,
+      "notes": "nan",
+      "direction": "positive",
+      "variance_explained_approx": 0.242097
+    },
+    {
+      "edge_id": "E8",
+      "var1": "density",
+      "var2": "alcohol",
+      "type": "num_num",
+      "relationship": "linear",
+      "test": "pearsonr",
+      "effect": -0.472967,
+      "effect_name": "r",
+      "effect_size": "medium",
+      "n": 1119,
+      "q_value": 1.585902238534935e-62,
+      "notes": "nan",
+      "direction": "negative",
+      "variance_explained_approx": 0.223698
+    },
+    {
+      "edge_id": "E9",
+      "var1": "residual_sugar",
+      "var2": "density",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.428834,
+      "effect_name": "rho",
+      "effect_size": "medium",
+      "n": 1119,
+      "q_value": 2.0810095199542329e-50,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.183898
+    },
+    {
+      "edge_id": "E10",
+      "var1": "sulphates",
+      "var2": "quality",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.38937,
+      "effect_name": "rho",
+      "effect_size": "medium",
+      "n": 1119,
+      "q_value": 5.31762273797567e-41,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.151609
+    },
+    {
+      "edge_id": "E11",
+      "var1": "volatile_acidity",
+      "var2": "quality",
+      "type": "num_num",
+      "relationship": "linear",
+      "test": "pearsonr",
+      "effect": -0.383783,
+      "effect_name": "r",
+      "effect_size": "medium",
+      "n": 1119,
+      "q_value": 8.364754978942424e-40,
+      "notes": "nan",
+      "direction": "negative",
+      "variance_explained_approx": 0.147289
+    },
+    {
+      "edge_id": "E12",
+      "var1": "volatile_acidity",
+      "var2": "sulphates",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": -0.348932,
+      "effect_name": "rho",
+      "effect_size": "medium",
+      "n": 1119,
+      "q_value": 1.0361721293967514e-32,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "negative",
+      "variance_explained_approx": 0.121754
+    }
+  ],
+  "global_constraints": [
+    "do_not_infer_causality",
+    "do_not_use_external_facts",
+    "do_not_overstate_effect_sizes",
+    "prefer_non_redundant_hypotheses",
+    "prefer_hypotheses_that_synthesize_multiple_edges_when_supported",
+    "every_hypothesis_must_reference_at_least_one_edge",
+    "every_hypothesis_must_include_a_test_plan"
+  ],
+  "notes": [
+    "Top edges were selected with a per-variable cap.",
+    "Weight-like variables were excluded.",
+    "Near-deterministic edges were excluded."
+  ]
+}

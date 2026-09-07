@@ -1,0 +1,390 @@
+{
+  "hypotheses": [
+    {
+      "id": "H1",
+      "variables": [
+        "medhouseval",
+        "medinc",
+        "averooms"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "In the California housing data, median house value is jointly positively associated with median income and average number of rooms per household.",
+      "supporting_evidence": [
+        "E2",
+        "E6",
+        "E3"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "medhouseval has no linear association with medinc or averooms",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "medhouseval",
+        "predictors": [
+          "medinc",
+          "averooms"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "medinc": "positive",
+          "averooms": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "medhouseval ~ medinc + averooms"
+      },
+      "risk_flags": [
+        "possible_confounding"
+      ]
+    },
+    {
+      "id": "H3",
+      "variables": [
+        "population",
+        "houseage",
+        "aveoccup"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Population size is jointly negatively related to house age and positively related to average occupancy.",
+      "supporting_evidence": [
+        "E4",
+        "E8"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "population has no linear association with houseage or aveoccup",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "population",
+        "predictors": [
+          "houseage",
+          "aveoccup"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "houseage": "negative",
+          "aveoccup": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "population ~ houseage + aveoccup"
+      },
+      "risk_flags": [
+        "weak_effect"
+      ]
+    },
+    {
+      "id": "H5",
+      "variables": [
+        "averooms",
+        "medinc",
+        "avebedrms"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Average number of rooms per household rises with median income, even after accounting for the negative association between median income and average bedrooms.",
+      "supporting_evidence": [
+        "E3",
+        "E7"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "averooms has no linear association with medinc after adjusting for avebedrms",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "averooms",
+        "predictors": [
+          "medinc"
+        ],
+        "controls": [
+          "avebedrms"
+        ],
+        "expected_signs": {
+          "medinc": "positive",
+          "avebedrms": "unknown"
+        },
+        "analysis_unit": "row",
+        "model_formula": "averooms ~ medinc + avebedrms"
+      },
+      "risk_flags": [
+        "weak_effect"
+      ]
+    },
+    {
+      "id": "H6",
+      "variables": [
+        "medhouseval",
+        "medinc",
+        "aveoccup"
+      ],
+      "relationship_type": "multi_edge_pattern",
+      "direction": "association_without_direction",
+      "claim": "Median house value is positively associated with median income and negatively associated with average occupancy when both factors are considered together.",
+      "supporting_evidence": [
+        "E2",
+        "E5"
+      ],
+      "test_plan": {
+        "primary_test": "linear_regression",
+        "null_hypothesis": "medhouseval has no linear association with medinc or aveoccup",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "medhouseval",
+        "predictors": [
+          "medinc",
+          "aveoccup"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "medinc": "positive",
+          "aveoccup": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "medhouseval ~ medinc + aveoccup"
+      },
+      "risk_flags": [
+        "weak_effect"
+      ]
+    },
+    {
+      "id": "H9",
+      "variables": [
+        "latitude",
+        "longitude"
+      ],
+      "relationship_type": "association",
+      "direction": "negative",
+      "claim": "Latitude and longitude are strongly negatively linearly correlated.",
+      "supporting_evidence": [
+        "E1"
+      ],
+      "test_plan": {
+        "primary_test": "pearsonr",
+        "null_hypothesis": "no linear correlation between latitude and longitude",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "latitude",
+        "predictors": [
+          "longitude"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "longitude": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "latitude ~ longitude"
+      },
+      "risk_flags": []
+    },
+    {
+      "id": "H10",
+      "variables": [
+        "medinc",
+        "medhouseval"
+      ],
+      "relationship_type": "association",
+      "direction": "positive",
+      "claim": "Median income is positively monotonic associated with median house value.",
+      "supporting_evidence": [
+        "E2"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "no monotonic association between medinc and medhouseval",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "medhouseval",
+        "predictors": [
+          "medinc"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "medinc": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "medhouseval ~ medinc"
+      },
+      "risk_flags": []
+    },
+    {
+      "id": "H11",
+      "variables": [
+        "medinc",
+        "averooms"
+      ],
+      "relationship_type": "association",
+      "direction": "positive",
+      "claim": "Median income is positively monotonic associated with average number of rooms per household.",
+      "supporting_evidence": [
+        "E3"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "no monotonic association between medinc and averooms",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "averooms",
+        "predictors": [
+          "medinc"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "medinc": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "averooms ~ medinc"
+      },
+      "risk_flags": []
+    },
+    {
+      "id": "H12",
+      "variables": [
+        "houseage",
+        "population"
+      ],
+      "relationship_type": "association",
+      "direction": "negative",
+      "claim": "House age is negatively monotonic associated with population size.",
+      "supporting_evidence": [
+        "E4"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "no monotonic association between houseage and population",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "population",
+        "predictors": [
+          "houseage"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "houseage": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "population ~ houseage"
+      },
+      "risk_flags": [
+        "weak_effect"
+      ]
+    },
+    {
+      "id": "H13",
+      "variables": [
+        "aveoccup",
+        "medhouseval"
+      ],
+      "relationship_type": "association",
+      "direction": "negative",
+      "claim": "Average occupancy is negatively monotonic associated with median house value.",
+      "supporting_evidence": [
+        "E5"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "no monotonic association between aveoccup and medhouseval",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "medhouseval",
+        "predictors": [
+          "aveoccup"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "aveoccup": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "medhouseval ~ aveoccup"
+      },
+      "risk_flags": [
+        "weak_effect"
+      ]
+    },
+    {
+      "id": "H14",
+      "variables": [
+        "averooms",
+        "medhouseval"
+      ],
+      "relationship_type": "association",
+      "direction": "positive",
+      "claim": "Average number of rooms per household is positively monotonic associated with median house value.",
+      "supporting_evidence": [
+        "E6"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "no monotonic association between averooms and medhouseval",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "medhouseval",
+        "predictors": [
+          "averooms"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "averooms": "positive"
+        },
+        "analysis_unit": "row",
+        "model_formula": "medhouseval ~ averooms"
+      },
+      "risk_flags": [
+        "weak_effect"
+      ]
+    },
+    {
+      "id": "H15",
+      "variables": [
+        "medinc",
+        "avebedrms"
+      ],
+      "relationship_type": "association",
+      "direction": "negative",
+      "claim": "Median income is negatively monotonic associated with average number of bedrooms per household.",
+      "supporting_evidence": [
+        "E7"
+      ],
+      "test_plan": {
+        "primary_test": "spearmanr",
+        "null_hypothesis": "no monotonic association between medinc and avebedrms",
+        "alpha": 0.05,
+        "multiple_testing": "BH over this batch"
+      },
+      "validation_spec": {
+        "outcome": "avebedrms",
+        "predictors": [
+          "medinc"
+        ],
+        "controls": [],
+        "expected_signs": {
+          "medinc": "negative"
+        },
+        "analysis_unit": "row",
+        "model_formula": "avebedrms ~ medinc"
+      },
+      "risk_flags": [
+        "weak_effect"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+Input rows: 1599
+Train rows: 1119
+Test rows: 480
+Test size: 0.3
+Random state: 42
+Stratify column: None

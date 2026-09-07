@@ -1,0 +1,14 @@
+{
+  "dataset": "wine_quality_red_train",
+  "n_edges_in_pack": 12,
+  "n_variables_in_pack": 11,
+  "requested_hypotheses": null,
+  "prompt_char_count": 15066,
+  "config": {
+    "max_edges": 12,
+    "max_vars": 30,
+    "max_json_chars": 18000,
+    "near_deterministic_threshold": 0.95,
+    "max_edges_per_variable": 3
+  }
+}

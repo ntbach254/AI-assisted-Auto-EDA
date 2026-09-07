@@ -1,0 +1,315 @@
+{
+  "schema_version": "2.3",
+  "dataset": "california_housing_train",
+  "summary": {
+    "n_edges": 10,
+    "n_variables": 9,
+    "association_types_present": [
+      "num_num"
+    ],
+    "tests_present": [
+      "pearsonr",
+      "spearmanr"
+    ]
+  },
+  "variables": {
+    "avebedrms": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 10758,
+      "skewness": 23.357325,
+      "outlier_rate": 0.070736,
+      "issues": []
+    },
+    "aveoccup": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 13479,
+      "skewness": 82.453428,
+      "outlier_rate": 0.03523,
+      "issues": []
+    },
+    "averooms": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 13802,
+      "skewness": 19.151553,
+      "outlier_rate": 0.02554,
+      "issues": []
+    },
+    "houseage": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 52,
+      "skewness": 0.066699,
+      "outlier_rate": 0.0,
+      "issues": []
+    },
+    "latitude": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 826,
+      "skewness": 0.463087,
+      "outlier_rate": 0.0,
+      "issues": []
+    },
+    "longitude": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 815,
+      "skewness": -0.286126,
+      "outlier_rate": 0.0,
+      "issues": []
+    },
+    "medhouseval": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 3552,
+      "skewness": 0.983324,
+      "outlier_rate": 0.053156,
+      "issues": []
+    },
+    "medinc": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 9851,
+      "skewness": 1.649154,
+      "outlier_rate": 0.032877,
+      "issues": []
+    },
+    "population": {
+      "feature_type": "numeric_continuous",
+      "dtype": "float64",
+      "missing_rate": 0.0,
+      "n_unique": 3495,
+      "skewness": 5.500013,
+      "outlier_rate": 0.057793,
+      "issues": []
+    }
+  },
+  "edges": [
+    {
+      "edge_id": "E1",
+      "var1": "latitude",
+      "var2": "longitude",
+      "type": "num_num",
+      "relationship": "linear",
+      "test": "pearsonr",
+      "effect": -0.923408,
+      "effect_name": "r",
+      "effect_size": "large",
+      "n": 14448,
+      "q_value": 0.0,
+      "notes": "nan",
+      "direction": "negative",
+      "variance_explained_approx": 0.852683
+    },
+    {
+      "edge_id": "E2",
+      "var1": "medinc",
+      "var2": "medhouseval",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.676586,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 14448,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.457768
+    },
+    {
+      "edge_id": "E3",
+      "var1": "medinc",
+      "var2": "averooms",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.640316,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 14448,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.410005
+    },
+    {
+      "edge_id": "E4",
+      "var1": "houseage",
+      "var2": "population",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": -0.284438,
+      "effect_name": "rho",
+      "effect_size": "small",
+      "n": 14448,
+      "q_value": 4.7295325525296966e-266,
+      "notes": "nan",
+      "inference_constraints": [
+        "effect_is_weak_or_modest",
+        "do_not_overstate_strength",
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "negative",
+      "variance_explained_approx": 0.080905
+    },
+    {
+      "edge_id": "E5",
+      "var1": "aveoccup",
+      "var2": "medhouseval",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": -0.256835,
+      "effect_name": "rho",
+      "effect_size": "small",
+      "n": 14448,
+      "q_value": 1.6002646299377199e-215,
+      "notes": "nan",
+      "inference_constraints": [
+        "effect_is_weak_or_modest",
+        "do_not_overstate_strength",
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "negative",
+      "variance_explained_approx": 0.065964
+    },
+    {
+      "edge_id": "E6",
+      "var1": "averooms",
+      "var2": "medhouseval",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.256439,
+      "effect_name": "rho",
+      "effect_size": "small",
+      "n": 14448,
+      "q_value": 6.43248887928366e-215,
+      "notes": "nan",
+      "inference_constraints": [
+        "effect_is_weak_or_modest",
+        "do_not_overstate_strength",
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.065761
+    },
+    {
+      "edge_id": "E7",
+      "var1": "medinc",
+      "var2": "avebedrms",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": -0.253697,
+      "effect_name": "rho",
+      "effect_size": "small",
+      "n": 14448,
+      "q_value": 2.753897329817419e-210,
+      "notes": "nan",
+      "inference_constraints": [
+        "effect_is_weak_or_modest",
+        "do_not_overstate_strength",
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "negative",
+      "variance_explained_approx": 0.064362
+    },
+    {
+      "edge_id": "E8",
+      "var1": "population",
+      "var2": "aveoccup",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.237011,
+      "effect_name": "rho",
+      "effect_size": "small",
+      "n": 14448,
+      "q_value": 5.53793056404827e-183,
+      "notes": "nan",
+      "inference_constraints": [
+        "effect_is_weak_or_modest",
+        "do_not_overstate_strength",
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.056174
+    },
+    {
+      "edge_id": "E9",
+      "var1": "houseage",
+      "var2": "averooms",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": -0.23211,
+      "effect_name": "rho",
+      "effect_size": "small",
+      "n": 14448,
+      "q_value": 2.1561779035651874e-175,
+      "notes": "nan",
+      "inference_constraints": [
+        "effect_is_weak_or_modest",
+        "do_not_overstate_strength",
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "negative",
+      "variance_explained_approx": 0.053875
+    },
+    {
+      "edge_id": "E10",
+      "var1": "aveoccup",
+      "var2": "longitude",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.17796,
+      "effect_name": "rho",
+      "effect_size": "small",
+      "n": 14448,
+      "q_value": 1.495029923911999e-102,
+      "notes": "nan",
+      "inference_constraints": [
+        "effect_is_weak_or_modest",
+        "do_not_overstate_strength",
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.03167
+    }
+  ],
+  "global_constraints": [
+    "do_not_infer_causality",
+    "do_not_use_external_facts",
+    "do_not_overstate_effect_sizes",
+    "prefer_non_redundant_hypotheses",
+    "prefer_hypotheses_that_synthesize_multiple_edges_when_supported",
+    "every_hypothesis_must_reference_at_least_one_edge",
+    "every_hypothesis_must_include_a_test_plan"
+  ],
+  "notes": [
+    "Top edges were selected with a per-variable cap.",
+    "Weight-like variables were excluded.",
+    "Near-deterministic edges were excluded."
+  ]
+}

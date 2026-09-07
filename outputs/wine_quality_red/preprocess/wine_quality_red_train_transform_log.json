@@ -1,0 +1,152 @@
+{
+  "dropped": {},
+  "imputed": {
+    "fixed_acidity": {
+      "method": "median",
+      "value": 7.9
+    },
+    "volatile_acidity": {
+      "method": "median",
+      "value": 0.52
+    },
+    "citric_acid": {
+      "method": "mean",
+      "value": 0.27025022341376226
+    },
+    "residual_sugar": {
+      "method": "median",
+      "value": 2.2
+    },
+    "chlorides": {
+      "method": "median",
+      "value": 0.08
+    },
+    "free_sulfur_dioxide": {
+      "method": "median",
+      "value": 14.0
+    },
+    "total_sulfur_dioxide": {
+      "method": "median",
+      "value": 38.0
+    },
+    "density": {
+      "method": "mean",
+      "value": 0.99677799821269
+    },
+    "ph": {
+      "method": "mean",
+      "value": 3.314271671134942
+    },
+    "sulphates": {
+      "method": "median",
+      "value": 0.62
+    },
+    "alcohol": {
+      "method": "median",
+      "value": 10.2
+    },
+    "quality": {
+      "method": "mean",
+      "value": 5.621983914209116
+    }
+  },
+  "engineered": {
+    "fixed_acidity__is_outlier": {
+      "source": "fixed_acidity",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 3.95,
+      "upper_bound": 12.349999999999998,
+      "outlier_rate_on_transformed": 0.03038427167113494
+    },
+    "volatile_acidity__is_outlier": {
+      "source": "volatile_acidity",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 0.040000000000000036,
+      "upper_bound": 1.0,
+      "outlier_rate_on_transformed": 0.014298480786416443
+    },
+    "citric_acid__is_outlier": {
+      "source": "citric_acid",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": -0.42000000000000004,
+      "upper_bound": 0.94,
+      "outlier_rate_on_transformed": 0.0008936550491510277
+    },
+    "residual_sugar__is_outlier": {
+      "source": "residual_sugar",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 0.8499999999999996,
+      "upper_bound": 3.6500000000000004,
+      "outlier_rate_on_transformed": 0.09919571045576407
+    },
+    "chlorides__is_outlier": {
+      "source": "chlorides",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 0.04249999999999999,
+      "upper_bound": 0.1185,
+      "outlier_rate_on_transformed": 0.07685433422698838
+    },
+    "free_sulfur_dioxide__is_outlier": {
+      "source": "free_sulfur_dioxide",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": -14.0,
+      "upper_bound": 42.0,
+      "outlier_rate_on_transformed": 0.014298480786416443
+    },
+    "total_sulfur_dioxide__is_outlier": {
+      "source": "total_sulfur_dioxide",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": -41.0,
+      "upper_bound": 127.0,
+      "outlier_rate_on_transformed": 0.029490616621983913
+    },
+    "density__is_outlier": {
+      "source": "density",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 0.9924449999999998,
+      "upper_bound": 1.001085,
+      "outlier_rate_on_transformed": 0.03127792672028597
+    },
+    "ph__is_outlier": {
+      "source": "ph",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 2.9500000000000006,
+      "upper_bound": 3.6699999999999995,
+      "outlier_rate_on_transformed": 0.03306523681858802
+    },
+    "sulphates__is_outlier": {
+      "source": "sulphates",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 0.28000000000000014,
+      "upper_bound": 0.9999999999999999,
+      "outlier_rate_on_transformed": 0.03842716711349419
+    },
+    "alcohol__is_outlier": {
+      "source": "alcohol",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 7.25,
+      "upper_bound": 13.25,
+      "outlier_rate_on_transformed": 0.014298480786416443
+    },
+    "quality__is_outlier": {
+      "source": "quality",
+      "type": "outlier_flag",
+      "method": "iqr",
+      "lower_bound": 3.5,
+      "upper_bound": 7.5,
+      "outlier_rate_on_transformed": 0.01876675603217158
+    }
+  },
+  "notes": []
+}

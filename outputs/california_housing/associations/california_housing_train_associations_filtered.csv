@@ -1,0 +1,11 @@
+var1,var2,type,relationship,test,effect,effect_name,p_value,n,notes,adjusted_p,significant
+medinc,averooms,num_num,monotonic,spearmanr,0.6403162175674963,rho,0.0,14448,,0.0,True
+medinc,avebedrms,num_num,monotonic,spearmanr,-0.253697009471328,rho,5.3548003635338695e-211,14448,,2.7538973298174187e-210,True
+medinc,medhouseval,num_num,monotonic,spearmanr,0.6765855358322875,rho,0.0,14448,,0.0,True
+houseage,averooms,num_num,monotonic,spearmanr,-0.2321101223534895,rho,5.3904447589129686e-176,14448,,2.1561779035651874e-175,True
+houseage,population,num_num,monotonic,spearmanr,-0.2844377074083878,rho,5.255036169477442e-267,14448,,4.729532552529697e-266,True
+averooms,medhouseval,num_num,monotonic,spearmanr,0.2564393692539237,rho,1.0720814798806103e-215,14448,,6.432488879283661e-215,True
+population,aveoccup,num_num,monotonic,spearmanr,0.2370112536432012,rho,1.2306512364551712e-183,14448,,5.53793056404827e-183,True
+aveoccup,longitude,num_num,monotonic,spearmanr,0.177960148333608,rho,4.152860899755553e-103,14448,,1.495029923911999e-102,True
+aveoccup,medhouseval,num_num,monotonic,spearmanr,-0.2568354542872436,rho,2.2225897638023885e-216,14448,,1.6002646299377199e-215,True
+latitude,longitude,num_num,linear,pearsonr,-0.9234083196769404,r,0.0,14448,,0.0,True

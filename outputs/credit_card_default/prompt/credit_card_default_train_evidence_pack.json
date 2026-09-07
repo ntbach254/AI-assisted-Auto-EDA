@@ -1,0 +1,359 @@
+{
+  "schema_version": "2.3",
+  "dataset": "credit_card_default_train",
+  "summary": {
+    "n_edges": 12,
+    "n_variables": 11,
+    "association_types_present": [
+      "num_num"
+    ],
+    "tests_present": [
+      "spearmanr"
+    ]
+  },
+  "variables": {
+    "bill_amt1": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 16621,
+      "skewness": 2.697399,
+      "outlier_rate": 0.078905,
+      "issues": []
+    },
+    "bill_amt2": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 16263,
+      "skewness": 2.733454,
+      "outlier_rate": 0.079524,
+      "issues": []
+    },
+    "bill_amt3": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 16067,
+      "skewness": 3.250832,
+      "outlier_rate": 0.081952,
+      "issues": []
+    },
+    "bill_amt4": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 15774,
+      "skewness": 2.832156,
+      "outlier_rate": 0.085667,
+      "issues": []
+    },
+    "bill_amt5": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 15394,
+      "skewness": 2.895781,
+      "outlier_rate": 0.089524,
+      "issues": []
+    },
+    "bill_amt6": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 15139,
+      "skewness": 2.850447,
+      "outlier_rate": 0.088714,
+      "issues": []
+    },
+    "pay_2": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 11,
+      "skewness": 0.790302,
+      "outlier_rate": 0.148762,
+      "issues": []
+    },
+    "pay_3": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 11,
+      "skewness": 0.834699,
+      "outlier_rate": 0.139857,
+      "issues": []
+    },
+    "pay_4": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 11,
+      "skewness": 0.997127,
+      "outlier_rate": 0.117333,
+      "issues": []
+    },
+    "pay_5": {
+      "feature_type": "numeric_ordinal",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 10,
+      "skewness": 1.010697,
+      "outlier_rate": 0.099,
+      "issues": []
+    },
+    "pay_6": {
+      "feature_type": "numeric_ordinal",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "n_unique": 10,
+      "skewness": 0.958131,
+      "outlier_rate": 0.104,
+      "issues": []
+    }
+  },
+  "edges": [
+    {
+      "edge_id": "E1",
+      "var1": "bill_amt1",
+      "var2": "bill_amt2",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.913195,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 21000,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.833926
+    },
+    {
+      "edge_id": "E2",
+      "var1": "bill_amt2",
+      "var2": "bill_amt3",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.908246,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 21000,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.824911
+    },
+    {
+      "edge_id": "E3",
+      "var1": "bill_amt3",
+      "var2": "bill_amt4",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.903301,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 21000,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.815953
+    },
+    {
+      "edge_id": "E4",
+      "var1": "bill_amt5",
+      "var2": "bill_amt6",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.903115,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 21000,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.815617
+    },
+    {
+      "edge_id": "E5",
+      "var1": "bill_amt4",
+      "var2": "bill_amt5",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.9025,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 21000,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.814506
+    },
+    {
+      "edge_id": "E6",
+      "var1": "bill_amt1",
+      "var2": "bill_amt3",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.857563,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 21000,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.735414
+    },
+    {
+      "edge_id": "E7",
+      "var1": "bill_amt2",
+      "var2": "bill_amt4",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.850702,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 21000,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.723694
+    },
+    {
+      "edge_id": "E8",
+      "var1": "pay_4",
+      "var2": "pay_5",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.823069,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 21000,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.677443
+    },
+    {
+      "edge_id": "E9",
+      "var1": "pay_5",
+      "var2": "pay_6",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.821053,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 21000,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.674127
+    },
+    {
+      "edge_id": "E10",
+      "var1": "pay_3",
+      "var2": "pay_4",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.803988,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 21000,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.646396
+    },
+    {
+      "edge_id": "E11",
+      "var1": "pay_2",
+      "var2": "pay_3",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.801887,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 21000,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.643022
+    },
+    {
+      "edge_id": "E12",
+      "var1": "bill_amt1",
+      "var2": "bill_amt5",
+      "type": "num_num",
+      "relationship": "monotonic",
+      "test": "spearmanr",
+      "effect": 0.770188,
+      "effect_name": "rho",
+      "effect_size": "large",
+      "n": 21000,
+      "q_value": 0.0,
+      "notes": "nan",
+      "inference_constraints": [
+        "monotonic_not_necessarily_linear"
+      ],
+      "direction": "positive",
+      "variance_explained_approx": 0.59319
+    }
+  ],
+  "global_constraints": [
+    "do_not_infer_causality",
+    "do_not_use_external_facts",
+    "do_not_overstate_effect_sizes",
+    "prefer_non_redundant_hypotheses",
+    "prefer_hypotheses_that_synthesize_multiple_edges_when_supported",
+    "every_hypothesis_must_reference_at_least_one_edge",
+    "every_hypothesis_must_include_a_test_plan"
+  ],
+  "notes": [
+    "Top edges were selected with a per-variable cap.",
+    "Weight-like variables were excluded.",
+    "Near-deterministic edges were excluded."
+  ]
+}

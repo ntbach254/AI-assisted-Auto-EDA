@@ -1,0 +1,535 @@
+{
+  "policy": {
+    "missing_threshold": 0.4,
+    "drop_constant": true,
+    "drop_id_like": true,
+    "drop_high_missing": true,
+    "add_outlier_flags": true,
+    "add_missing_indicators": true,
+    "skew_mean_threshold": 0.5,
+    "outlier_rate_mean_threshold": 0.05,
+    "min_stats_n": 30,
+    "categorical_missing_token": "missing"
+  },
+  "columns": {
+    "id": {
+      "feature_type": "id_like",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": true,
+      "drop_actions": [
+        "dropped_id_like"
+      ],
+      "add_missing_indicator": false
+    },
+    "limit_bal": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 140000.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -235000.0,
+        "upper_bound": 525000.0
+      }
+    },
+    "sex": {
+      "feature_type": "binary",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "mean",
+        "value": 1.605904761904762
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -0.5,
+        "upper_bound": 3.5
+      }
+    },
+    "education": {
+      "feature_type": "numeric_ordinal",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 2.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -0.5,
+        "upper_bound": 3.5
+      }
+    },
+    "marriage": {
+      "feature_type": "numeric_ordinal",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "mean",
+        "value": 1.550142857142857
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -0.5,
+        "upper_bound": 3.5
+      }
+    },
+    "age": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 34.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": 7.0,
+        "upper_bound": 63.0
+      }
+    },
+    "pay_0": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 0.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -2.5,
+        "upper_bound": 1.5
+      }
+    },
+    "pay_2": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 0.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -2.5,
+        "upper_bound": 1.5
+      }
+    },
+    "pay_3": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 0.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -2.5,
+        "upper_bound": 1.5
+      }
+    },
+    "pay_4": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 0.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -2.5,
+        "upper_bound": 1.5
+      }
+    },
+    "pay_5": {
+      "feature_type": "numeric_ordinal",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 0.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -2.5,
+        "upper_bound": 1.5
+      }
+    },
+    "pay_6": {
+      "feature_type": "numeric_ordinal",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 0.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -2.5,
+        "upper_bound": 1.5
+      }
+    },
+    "bill_amt1": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 22321.5
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -91496.5,
+        "upper_bound": 161783.5
+      }
+    },
+    "bill_amt2": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 21084.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -87704.0,
+        "upper_bound": 154068.0
+      }
+    },
+    "bill_amt3": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 20087.5
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -83156.5,
+        "upper_bound": 145619.5
+      }
+    },
+    "bill_amt4": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 19018.5
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -76224.0,
+        "upper_bound": 133208.0
+      }
+    },
+    "bill_amt5": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 18123.5
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -71425.875,
+        "upper_bound": 123699.125
+      }
+    },
+    "bill_amt6": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 17150.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -71063.25,
+        "upper_bound": 121832.75
+      }
+    },
+    "pay_amt1": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 2100.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -5087.75,
+        "upper_bound": 11070.25
+      }
+    },
+    "pay_amt2": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 2011.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -5300.625,
+        "upper_bound": 11180.375
+      }
+    },
+    "pay_amt3": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 1800.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -5806.125,
+        "upper_bound": 10716.875
+      }
+    },
+    "pay_amt4": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 1500.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -5282.125,
+        "upper_bound": 9570.875
+      }
+    },
+    "pay_amt5": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 1500.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -5485.25,
+        "upper_bound": 9784.75
+      }
+    },
+    "pay_amt6": {
+      "feature_type": "numeric_continuous",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 1500.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": -5630.0,
+        "upper_bound": 9778.0
+      }
+    },
+    "default_payment_next_month": {
+      "feature_type": "binary",
+      "dtype": "int64",
+      "missing_rate": 0.0,
+      "drop": false,
+      "drop_actions": [],
+      "add_missing_indicator": false,
+      "imputation": {
+        "method": "median",
+        "value": 0.0
+      },
+      "outlier_flag": {
+        "enabled": true,
+        "method": "iqr",
+        "lower_bound": null,
+        "upper_bound": null
+      }
+    }
+  },
+  "raw_input_columns": [
+    "id",
+    "limit_bal",
+    "sex",
+    "education",
+    "marriage",
+    "age",
+    "pay_0",
+    "pay_2",
+    "pay_3",
+    "pay_4",
+    "pay_5",
+    "pay_6",
+    "bill_amt1",
+    "bill_amt2",
+    "bill_amt3",
+    "bill_amt4",
+    "bill_amt5",
+    "bill_amt6",
+    "pay_amt1",
+    "pay_amt2",
+    "pay_amt3",
+    "pay_amt4",
+    "pay_amt5",
+    "pay_amt6",
+    "default_payment_next_month"
+  ],
+  "output_columns": [
+    "limit_bal",
+    "limit_bal__is_outlier",
+    "sex",
+    "sex__is_outlier",
+    "education",
+    "education__is_outlier",
+    "marriage",
+    "marriage__is_outlier",
+    "age",
+    "age__is_outlier",
+    "pay_0",
+    "pay_0__is_outlier",
+    "pay_2",
+    "pay_2__is_outlier",
+    "pay_3",
+    "pay_3__is_outlier",
+    "pay_4",
+    "pay_4__is_outlier",
+    "pay_5",
+    "pay_5__is_outlier",
+    "pay_6",
+    "pay_6__is_outlier",
+    "bill_amt1",
+    "bill_amt1__is_outlier",
+    "bill_amt2",
+    "bill_amt2__is_outlier",
+    "bill_amt3",
+    "bill_amt3__is_outlier",
+    "bill_amt4",
+    "bill_amt4__is_outlier",
+    "bill_amt5",
+    "bill_amt5__is_outlier",
+    "bill_amt6",
+    "bill_amt6__is_outlier",
+    "pay_amt1",
+    "pay_amt1__is_outlier",
+    "pay_amt2",
+    "pay_amt2__is_outlier",
+    "pay_amt3",
+    "pay_amt3__is_outlier",
+    "pay_amt4",
+    "pay_amt4__is_outlier",
+    "pay_amt5",
+    "pay_amt5__is_outlier",
+    "pay_amt6",
+    "pay_amt6__is_outlier",
+    "default_payment_next_month",
+    "default_payment_next_month__is_outlier"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "dataset": "wine_quality_red_train",
+  "generated_hypotheses_raw": 17,
+  "hypotheses_after_pre_filter": 17,
+  "rejected_pre_validation": 0,
+  "testable_hypotheses": 17,
+  "validated_hypotheses_before_bootstrap": 15,
+  "final_accepted_hypotheses": 14,
+  "rejected_after_bootstrap": 1,
+  "not_testable_hypotheses": 0,
+  "validation_rate_among_testable": 0.8823529411764706,
+  "final_acceptance_rate_among_validated": 0.9333333333333333,
+  "alpha": 0.05,
+  "min_n": 30,
+  "min_abs_r": 0.15,
+  "min_cramers_v": 0.2,
+  "min_eta2": 0.05,
+  "min_rank_biserial": 0.15,
+  "bootstrap_iterations": 200,
+  "bootstrap_sign_consistency_min": 0.8,
+  "bootstrap_effect_pass_rate_min": 0.7
+}
